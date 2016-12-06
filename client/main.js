@@ -1,2 +1,2 @@
-import '../client/ui/body.js';
 import '../imports/accounts-config.js';
+import { Template } from 'meteor/templating';

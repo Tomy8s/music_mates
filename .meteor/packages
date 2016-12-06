@@ -26,3 +26,5 @@ xinranxiao:accounts-spotify
 service-configuration
 meteortoys:allthings
 xinranxiao:spotify-web-api
+kadira:flow-router
+kadira:blaze-layout
