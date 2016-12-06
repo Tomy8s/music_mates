@@ -4,7 +4,11 @@
   {{> friendRequest }}
   {{#each currentUser.requests}}
   <div class="request">
+      {{#if requester.userId.username }}
       <p>{{requester.userId.username}} would like to be friends</p>
+      {{ else }}
+      <p>{{requester.profile.id}} would like to be friends</p>
+      {{/if}}
       <p>
           <a href="#" data-action="accept">Accept</a>
           <a href="#" data-action="deny">Deny</a>
@@ -17,17 +21,15 @@
 </template>
 
 <template name='friendRequest'>
-  {{#each userList }}
-      <h2>Email: {{email}}</h2>
-      <h2>Email: {{username}}</h2>
-      <h2>Email: {{_id}}</h2>
-      <button type="button" id="friend-request-btn">Let's be friends</button>
-  {{/each}}
-
+  <button type="button" id="friend-request-btn">Let's be friends</button>
 </template>
+
 <template name= "displayFriends">
   {{#each currentUser.friends}}
-      <!-- instance of Friend not User -->
-      <p>{{user.username}}</p>
+  {{#if user.profile.id}}
+    <p>{{user.profile.id}}</p>
+   {{ else }}
+    <p>{{user.username}}</p>
+   {{/if}}
   {{/each}}
 </template>

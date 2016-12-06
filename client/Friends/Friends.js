@@ -8,16 +8,10 @@ Template.Friends.helpers({
 
 Template.Friends.events({
   'click #friend-request-btn'(event) {
-    // Prevent default browser form submit
     event.preventDefault();
-    var user = Meteor.users.findOne('gZvLG2GeXcmausJqT')
-
+    var currentUser = Meteor.user();
+    var user = Meteor.users.findOne(currentUser);
     var request = user.requestFriendship();
-
-    // var requester = request.requester();
-    // console.log(requester)
-    // Meteor.call('tasks.insert', text);
-
   },
   'click [data-action=accept]': function() {
       //assumes context is a instance of a user
