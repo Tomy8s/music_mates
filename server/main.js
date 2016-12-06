@@ -1,5 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  ServiceConfiguration.configurations.update(
+    { "service": "spotify" },
+    {
+      $set: {
+        "clientId": Meteor.settings.spotifyClientId,
+        "secret": Meteor.settings.spotifySecret
+      }
+    },
+    { upsert: true }
+  );
 });
