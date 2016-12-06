@@ -1,3 +1,59 @@
+
+
+
 <template name='Friends'>
-  <h1>Friends</h1>
+
+  <div class="friends">
+    <div id="suggested-friends">
+      <ul>
+      {{#each AllUsers}}
+        <li><p>{{this.username}}</p>
+        <button type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ this.username }}</button></li>
+        <!-- <li><p>
+          {{ this.username }}
+        </p><a href="{{ this._id }}" class="friend-request-btn">Follow {{ this.username }}</a></li> -->
+      {{/each}}
+      </ul>
+    </div>
+
+    <div id="friends">
+
+      <div class="list-div">
+        <h2>All your Friends</h2>
+        {{> displayFriends }}
+      </div>
+
+      <div class="list-div">
+        <h3>Friends requests</h3>
+        {{> friendRequests }}
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="friendRequests">
+  {{#each currentUser.requests}}
+  <div class="request">
+      {{#if requester.userId.username }}
+        <p>{{requester.userId.username}} would like to be friends</p>
+      {{ else }}
+        <p>{{requester.profile.id}} would like to be friends</p>
+      {{/if}}
+          <a href="#" data-action="accept">Accept</a>
+          <a href="#" data-action="deny">Deny</a>
+          <a href="#" data-action="ignore">Ignore</a>
+  </div>
+  {{/each}}
+
+</template>
+
+<template name= "displayFriends">
+  {{#each currentUser.friends}}
+  {{#if user.profile.id}}
+    <p>{{user.profile.id}}</p>
+   {{ else }}
+    <p>{{user.username}}</p>
+   {{/if}}
+  {{/each}}
 </template>

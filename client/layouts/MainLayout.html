@@ -1,12 +1,16 @@
 <template name="MainLayout">
+  <div class="container">
 
-  <header>
-    {{> Navigation}}
-    {{> LoginButtons }}
-  </header>
+    <header>
+      <div id="navigation">
+        {{> Navigation}}
+      </div>
+        {{> LoginButtons }}
+    </header>
 
-  <main class="main-layout">
-    {{> Template.dynamic template=main}}
-  </main>
+    <main class="main-layout">
+      {{> Template.dynamic template=main}}
+    </main>
 
+  </div>
 </template>

@@ -1,4 +1,71 @@
 /* CSS declarations go here */
+body {
+  font-family: sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.main-layout {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+}
+
+nav{
+  float: right;
+}
+
+.login-link-and-dropdown-list{
+  margin: 10px 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: white;
+}
+
+.list-div {
+  padding: 10px;
+}
+
+header {
+  background-color: #d0edf5;
+  padding: 20px 15px 15px 15px;
+  position: relative;
+}
+
+h1,h2,h3 {
+  margin : 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  border-bottom: #eee solid 1px;
+}
+
 .selected_route {
   background-color: #ffcc00;
+}
+
+#suggested-friends {
+  background-color: #d0edf5;
+  min-height: 100%;
+  float :right;
+  width: 20%;
+  padding : 0 10px;
 }
