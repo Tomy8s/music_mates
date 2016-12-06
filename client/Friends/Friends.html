@@ -1,3 +1,33 @@
+
 <template name='Friends'>
   <h1>Friends</h1>
+  {{> friendRequest }}
+  {{#each currentUser.requests}}
+  <div class="request">
+      <p>{{requester.userId.username}} would like to be friends</p>
+      <p>
+          <a href="#" data-action="accept">Accept</a>
+          <a href="#" data-action="deny">Deny</a>
+          <a href="#" data-action="ignore">Ignore</a>
+      </p>
+  </div>
+  {{/each}}
+
+  {{> displayFriends }}
+</template>
+
+<template name='friendRequest'>
+  {{#each userList }}
+      <h2>Email: {{email}}</h2>
+      <h2>Email: {{username}}</h2>
+      <h2>Email: {{_id}}</h2>
+      <button type="button" id="friend-request-btn">Let's be friends</button>
+  {{/each}}
+
+</template>
+<template name= "displayFriends">
+  {{#each currentUser.friends}}
+      <!-- instance of Friend not User -->
+      <p>{{user.username}}</p>
+  {{/each}}
 </template>
