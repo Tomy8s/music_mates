@@ -3,26 +3,8 @@
   <div class="container">
     <header>
       {{> loginButtons}}
-      <h1 id='test'>Hello!</h1>
       <strong>{{ currentUser.profile.id }}</strong>
       <h1>Welcome to Music Mates!</h1>
     </header>
-    {{> hello}}
-    {{> info}}
   </div>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
-</template>
