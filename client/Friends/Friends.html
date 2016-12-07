@@ -29,11 +29,7 @@
     </p>
     {{#each currentUser.requests}}
     <div class="request">
-        {{#if requester.username }}
-          <p>{{requester.username}} would like to be friends</p>
-        {{ else }}
-          <p>{{requester.profile.id}} would like to be friends</p>
-        {{/if}}
+          <p>{{requesterName this.requester}} would like to be friends</p>
             <a href="#" data-action="accept">Accept</a>
             <a href="#" data-action="deny">Deny</a>
             <a href="#" data-action="ignore">Ignore</a>
