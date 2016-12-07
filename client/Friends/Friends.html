@@ -29,7 +29,6 @@
     <div class="request">
       <p>{{userName this.requester}} would like to be friends</p>
         <a href="#" data-action="accept">Accept</a>
-        <a href="#" data-action="deny">Deny</a>
         <a href="#" data-action="ignore">Ignore</a>
     </div>
     {{/each}}
@@ -51,7 +50,7 @@
   {{#if hasPendingRequests}}
     <ul>
       {{#each currentUser.pendingRequests}}
-        <li><span class="user-name">{{userName this.user}}</span> - <a href="#" data-action="cancel">Cancel pendnig request</a></li>
+        <li><span class="user-name">{{userName this.user}}</span> - <a href="#" data-action="cancel">Cancel pending request</a></li>
       {{/each}}
     </ul>
   {{else}}
