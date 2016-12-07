@@ -26,6 +26,7 @@ Meteor.methods({
     }
     return response.data.body.items
   },
+
   insertPlaylists: function(newPlaylists){
     newPlaylists.forEach(function(playlist){
       if (Playlists.findOne({ spotifyId: playlist.id})){
@@ -37,16 +38,16 @@ Meteor.methods({
           name: playlist.name,
           trackCount: playlist.tracks.total,
           ownerId: playlist.owner.id,
-          // spotifyOwnerId: playlist.
         });
         Meteor.call('findTracks', playlistId)
       }
     });
+    var usersPlaylists = Playlists.find({userId: Meteor.userId()}).fetch();
+    return usersPlaylists
   },
+
   findTracks: function (playlistId) {
     var playlist = Playlists.findOne(playlistId)
-    console.log(Meteor.user().services.spotify.id)
-    console.log(playlist.spotifyId)
     var spotifyApi = new SpotifyWebApi()
     var response = spotifyApi.getPlaylistTracks(playlist.ownerId, playlist.spotifyId, {})
     if (checkTokenRefreshed(response, spotifyApi)) {
@@ -55,6 +56,7 @@ Meteor.methods({
     var trackObjects = response.data.body.items
     Meteor.call('insertTracks', trackObjects)
   },
+
   insertTracks: function (trackObjects) {
     trackObjects.forEach(function(trackObject){
       var track = trackObject.track;
@@ -72,7 +74,6 @@ Meteor.methods({
   }
 
 });
-
 
 var checkTokenRefreshed = function(response, api) {
   if (response.error && response.error.statusCode === 401) {

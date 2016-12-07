@@ -1,4 +1,12 @@
 <template name='MyPlaylists'>
   <h1>My Playlists</h1>
-  <button type="button" id="import">Import</button>
+  <button type="button" id="import_playlists">Import Your Spotify Playlists</button>
+
+  {{#if playlists}}
+    <ul id="playlists_list">
+      {{#each playlists}}
+        <li><strong>{{name}}</strong> - {{trackCount}} tracks</li>
+      {{/each}}
+    </ul>
+  {{/if}}
 </template>
