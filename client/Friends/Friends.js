@@ -1,15 +1,17 @@
 import { Template } from 'meteor/templating';
 
 Template.Friends.helpers({
-    'hasRequests':function(){
-        var currentUser = Meteor.user();
-        return currentUser.numPendingRequests === 0 ? false : true;
-    }
+  AllUsers: function(){
+      return Meteor.users.find();
+  }
 });
 
-Template.Friends.AllUsers = function(){
-    return Meteor.users.find();
-}
+Template.friendRequests.helpers({
+  hasRequests:function(){
+      var currentUser = Meteor.user();
+      return currentUser.numPendingRequests() === 0 ? false : true;
+  }
+});
 
 Template.Friends.events({
   'click #friend-request-btn'(event) {
