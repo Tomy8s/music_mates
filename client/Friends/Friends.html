@@ -2,17 +2,8 @@
 <template name='Friends'>
 
   <div class="friends">
-    <div id="suggested-friends">
-      <ul>
-      {{#each AllUsers}}
-        <li><p>{{this.username}}</p>
-        <button type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ this.username }}</button></li>
-        <!-- <li><p>
-          {{ this.username }}
-        </p><a href="{{ this._id }}" class="friend-request-btn">Follow {{ this.username }}</a></li> -->
-      {{/each}}
-      </ul>
-    </div>
+
+    {{> suggestedFriends }}
 
     <div id="friends">
 
@@ -62,4 +53,17 @@
     <p>{{user.username}}</p>
    {{/if}}
   {{/each}}
+</template>
+
+<template name= "suggestedFriends">
+  <div id="suggested-friends">
+    <ul>
+    {{#each AllUsers}}
+      {{#unless isItMe this._id }}
+      <li><p>{{this.username}}</p>
+      <button type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ this.username }}</button></li>
+      {{/unless}}
+    {{/each}}
+    </ul>
+  </div>
 </template>

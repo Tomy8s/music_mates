@@ -1,8 +1,14 @@
 import { Template } from 'meteor/templating';
 
-Template.Friends.helpers({
+Template.suggestedFriends.helpers({
+  // currentUser: function(){
+  //   return Meteor.user();
+  // },
   AllUsers: function(){
       return Meteor.users.find();
+  },
+  isItMe: function(id){
+    return Meteor.user()._id === id ? true : false;
   }
 });
 
