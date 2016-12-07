@@ -8,12 +8,10 @@
     <div id="friends">
 
       <div class="list-div">
-        <h2>All your Friends</h2>
         {{> displayFriends }}
       </div>
 
       <div class="list-div">
-        <h3>Friends requests</h3>
         {{> friendRequests }}
       </div>
     </div>
@@ -22,6 +20,7 @@
 </template>
 
 <template name="friendRequests">
+  <h3>Friend requests</h3>
   {{#if hasRequests}}
     <p>
       You have {{currentUser.numRequests}} pending requests
@@ -40,12 +39,24 @@
 </template>
 
 <template name= "displayFriends">
+  <h2>All your Friends</h2>
   <ul>
     {{#each currentUser.friends}}
-      <li><span>{{userName this.user}}</span>
+      <li><span class="user-name">{{userName this.user}}</span>
       <a href="#" data-action="unfriend" id="unfriend-btn">Unfriend {{ userName this.user }}</a></li>
     {{/each}}
   </ul>
+
+  <h3>Friends who haven't confirmed</h3>
+  {{#if hasPendingRequests}}
+    <ul>
+      {{#each currentUser.pendingRequests}}
+        <li><span class="user-name">{{userName this.user}}</span> - <a href="#" data-action="cancel">Cancel pendnig request</a></li>
+      {{/each}}
+    </ul>
+  {{else}}
+      <p>You have no pending friend requests.</p>
+  {{/if}}
 </template>
 
 <template name= "suggestedFriends">

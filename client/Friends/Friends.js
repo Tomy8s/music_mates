@@ -17,13 +17,17 @@ function isFriend(user){
   return ids.includes(user._id) ? true : false;
 }
 
+function isRequestedFriend(user) {
+    return currentUser().hasRequestFrom(user) || user.hasRequestFrom(currentUser()) ? true : false;
+}
+
 Template.suggestedFriends.helpers({
   AllUsers: function(){
       return Meteor.users.find();
   },
 
   isMeOrFriend(user){
-    return isItMe(user) || isFriend(user) ? true : false;
+    return isItMe(user) || isFriend(user) || isRequestedFriend(user) ? true : false;
   }
 });
 
@@ -33,6 +37,12 @@ Template.friendRequests.helpers({
   }
 });
 
+Template.displayFriends.helpers({
+    hasPendingRequests: function() {
+        return currentUser().numPendingRequests() === 0 ? false : true;
+    }
+});
+
 Template.Friends.events({
   'click #friend-request-btn'(event) {
     event.preventDefault();
@@ -40,22 +50,18 @@ Template.Friends.events({
     var request = user.requestFriendship();
   },
   'click [data-action=accept]': function() {
-      //assumes context is a instance of a user
       this.accept();
   },
-
   'click [data-action=ignore]': function() {
-      //assumes context is a instance of a user
       this.ignore();
   },
-
   'click [data-action=deny]': function() {
-      //assumes context is a instance of a user
       this.deny();
   },
-
+  'click [data-action=cancel]': function() {
+      this.cancel();
+  },
   'click [data-action=unfriend]': function() {
-      //assumes context is a instance of a user
       user = Meteor.users.findOne({_id: this.friendId});
       user.unfriend();
   }
