@@ -1,21 +1,22 @@
 import { Template } from 'meteor/templating';
 
+function currentUser(){
+  return Meteor.user();
+}
+
 Template.suggestedFriends.helpers({
-  // currentUser: function(){
-  //   return Meteor.user();
-  // },
+
   AllUsers: function(){
       return Meteor.users.find();
   },
   isItMe: function(id){
-    return Meteor.user()._id === id ? true : false;
+    return currentUser()._id === id ? true : false;
   }
 });
 
 Template.friendRequests.helpers({
   hasRequests:function(){
-      var currentUser = Meteor.user();
-      return currentUser.numPendingRequests() === 0 ? false : true;
+      return currentUser().numRequests() === 0 ? false : true;
   }
 });
 

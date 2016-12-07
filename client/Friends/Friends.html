@@ -25,12 +25,12 @@
 
   {{#if hasRequests}}
     <p>
-      You have {{currentUser.numPendingRequests}} pending requests
+      You have {{currentUser.numRequests}} pending requests
     </p>
     {{#each currentUser.requests}}
     <div class="request">
-        {{#if requester.userId.username }}
-          <p>{{requester.userId.username}} would like to be friends</p>
+        {{#if requester.username }}
+          <p>{{requester.username}} would like to be friends</p>
         {{ else }}
           <p>{{requester.profile.id}} would like to be friends</p>
         {{/if}}
