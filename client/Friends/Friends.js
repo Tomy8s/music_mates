@@ -4,20 +4,33 @@ function currentUser(){
   return Meteor.user();
 }
 
-Template.suggestedFriends.helpers({
+function isItMe(user){
+  return currentUser()._id === user._id ? true : false;
+}
 
+function isFriend(user){
+  var arr = currentUser().friendsAsUsers().fetch();
+  var ids = arr.map(function(usr) {
+    return usr._id;
+  });
+  // var ids = currentUser().friends().find({friendId: user._id}).fetch();
+  return ids.includes(user._id) ? true : false;
+}
+
+Template.suggestedFriends.helpers({
   AllUsers: function(){
       return Meteor.users.find();
   },
-  isItMe: function(id){
-    return currentUser()._id === id ? true : false;
+
+  isMeOrFriend(user){
+    return isItMe(user) || isFriend(user) ? true : false;
   }
 });
 
 Template.friendRequests.helpers({
   hasRequests:function(){
       return currentUser().numRequests() === 0 ? false : true;
-  },
+  }
 });
 
 Template.Friends.events({
@@ -40,5 +53,11 @@ Template.Friends.events({
       //assumes context is a instance of a user
       this.deny();
   },
+
+  'click [data-action=unfriend]': function() {
+      //assumes context is a instance of a user
+      user = Meteor.users.findOne({_id: this.friendId});
+      user.unfriend();
+  }
 
 });

@@ -40,16 +40,19 @@
 </template>
 
 <template name= "displayFriends">
-  {{#each currentUser.friends}}
-    <p>{{userName this.user}}</p>
-  {{/each}}
+  <ul>
+    {{#each currentUser.friends}}
+      <li><span>{{userName this.user}}</span>
+      <a href="#" data-action="unfriend" id="unfriend-btn">Unfriend {{ userName this.user }}</a></li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name= "suggestedFriends">
   <div id="suggested-friends">
     <ul>
     {{#each AllUsers}}
-      {{#unless isItMe this._id }}
+      {{#unless isMeOrFriend this }}
       <li>
       <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ userName this }}</a></li>
       {{/unless}}
