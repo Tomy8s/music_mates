@@ -22,32 +22,26 @@
 </template>
 
 <template name="friendRequests">
-
   {{#if hasRequests}}
     <p>
       You have {{currentUser.numRequests}} pending requests
     </p>
     {{#each currentUser.requests}}
     <div class="request">
-          <p>{{requesterName this.requester}} would like to be friends</p>
-            <a href="#" data-action="accept">Accept</a>
-            <a href="#" data-action="deny">Deny</a>
-            <a href="#" data-action="ignore">Ignore</a>
+      <p>{{userName this.requester}} would like to be friends</p>
+        <a href="#" data-action="accept">Accept</a>
+        <a href="#" data-action="deny">Deny</a>
+        <a href="#" data-action="ignore">Ignore</a>
     </div>
     {{/each}}
-  {{else}}
+    {{else}}
       <p>You have no requests. :( </p>
-  {{/if}}
-
+    {{/if}}
 </template>
 
 <template name= "displayFriends">
   {{#each currentUser.friends}}
-  {{#if user.profile.id}}
-    <p>{{user.profile.id}}</p>
-   {{ else }}
-    <p>{{user.username}}</p>
-   {{/if}}
+    <p>{{userName this.user}}</p>
   {{/each}}
 </template>
 
@@ -56,8 +50,8 @@
     <ul>
     {{#each AllUsers}}
       {{#unless isItMe this._id }}
-      <li><p>{{this.username}}</p>
-      <button type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ this.username }}</button></li>
+      <li>
+      <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ userName this }}</a></li>
       {{/unless}}
     {{/each}}
     </ul>

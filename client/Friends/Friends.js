@@ -18,14 +18,6 @@ Template.friendRequests.helpers({
   hasRequests:function(){
       return currentUser().numRequests() === 0 ? false : true;
   },
-  requesterName:function(user){
-      console.log(user);
-      if(user.username) {
-          return user.username
-      } else { 
-          return user.profile.id
-      }
-  }
 });
 
 Template.Friends.events({
