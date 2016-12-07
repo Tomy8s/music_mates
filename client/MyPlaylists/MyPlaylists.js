@@ -5,6 +5,7 @@ Template.MyPlaylists.events({
     Meteor.call('getPlaylists', function (error, result) {
       console.log(error);
       console.log(result);
+    Meteor.call('insertPlaylists', result);
     })
   }
 });
