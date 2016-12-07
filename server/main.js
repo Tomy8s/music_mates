@@ -29,7 +29,7 @@ Meteor.methods({
 
   insertPlaylists: function(newPlaylists){
     newPlaylists.forEach(function(playlist){
-      if (Playlists.findOne({ spotifyId: playlist.id})){
+      if (Playlists.findOne({userId: Meteor.userId(), spotifyId: playlist.id})){
        return;
       } else {
         var playlistId = Playlists.insert({
