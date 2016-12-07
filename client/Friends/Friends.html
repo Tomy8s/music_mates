@@ -33,18 +33,22 @@
 </template>
 
 <template name="friendRequests">
-  {{#each currentUser.requests}}
-  <div class="request">
-      {{#if requester.userId.username }}
-        <p>{{requester.userId.username}} would like to be friends</p>
-      {{ else }}
-        <p>{{requester.profile.id}} would like to be friends</p>
-      {{/if}}
-          <a href="#" data-action="accept">Accept</a>
-          <a href="#" data-action="deny">Deny</a>
-          <a href="#" data-action="ignore">Ignore</a>
-  </div>
-  {{/each}}
+  {{#if hasRequests}}
+    {{#each currentUser.requests}}
+    <div class="request">
+        {{#if requester.userId.username }}
+          <p>{{requester.userId.username}} would like to be friends</p>
+        {{ else }}
+          <p>{{requester.profile.id}} would like to be friends</p>
+        {{/if}}
+            <a href="#" data-action="accept">Accept</a>
+            <a href="#" data-action="deny">Deny</a>
+            <a href="#" data-action="ignore">Ignore</a>
+    </div>
+    {{/each}}
+  {{else}}
+      <p>You have no requests. :({{currentUser.numPendingRequests}}</p>
+  {{/if}}
 
 </template>
 
