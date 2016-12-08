@@ -52,9 +52,6 @@ Template.Friends.events({
   'click [data-action=accept]': function() {
       this.accept();
   },
-  'click [data-action=ignore]': function() {
-      this.ignore();
-  },
   'click [data-action=cancel]': function() {
       this.cancel();
   },
