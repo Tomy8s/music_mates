@@ -1,10 +1,10 @@
 import { signUp, signIn, signUpAndSignIn, getBrowser, cleanDatabase } from './testHelpers.test'
 
 describe('User Login', function() {
-    beforeEach(function() {
-        server.call('logout');
-        // cleanDatabase();
-    });
+    // beforeEach(function() {
+    //     server.call('logout');
+    //     cleanDatabase();
+    // });
 
     describe('Sign up and sign in', function() {
         it('signs up a new user', function() {
@@ -20,19 +20,24 @@ describe('User Login', function() {
             expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
         });
 
-        it('Signs in existing user', function(){
-          server.call('logout');
-          browser.url('http://localhost:3000/discover');
-          browser.waitForExist('#login-name-link', 10000);
-          browser.click('#login-name-link');
-          browser.click('#login-buttons-logout');
-          browser.waitForExist('#login-sign-in-link', 10000);
-          browser.click('#login-sign-in-link');
-          browser.setValue('#login-username-or-email', 'Tester');
-          browser.setValue('#login-password', 'testpassword');
-          browser.keys("\uE006");
-          browser.waitForExist('#login-name-link', 10000);
-          expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
+        it('signs in existing user', function(){
+            browser.click('#login-name-link');
+            browser.click('#login-buttons-logout');
+            browser.waitForExist('#login-sign-in-link', 10000);
+            browser.click('#login-sign-in-link');
+            browser.setValue('#login-username-or-email', 'Tester');
+            browser.setValue('#login-password', 'testpassword');
+            browser.keys("\uE006"); //press ENTER
+            browser.waitForExist('#login-name-link', 10000);
+            expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
+        });
+
+        it('signs out existing user', function() {
+            browser.click('#login-name-link');
+            browser.click('#login-buttons-logout');
+            browser.waitForExist('#login-sign-in-link', 10000);
+            expect(browser.getText('#login-sign-in-link')).to.equal('Sign in ▾');
+            cleanDatabase();
         });
     });
 });

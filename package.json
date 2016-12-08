@@ -1,0 +1,24 @@
+{
+  "name": "music_mates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^1.0.0",
+    "chimp": "^0.44.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "chimp --ddp=http://localhost:3000 --mocha || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomy8s/music_mates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tomy8s/music_mates/issues"
+  },
+  "homepage": "https://github.com/Tomy8s/music_mates#readme"
+}
