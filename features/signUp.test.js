@@ -1,0 +1,22 @@
+import { signUp, signIn, signUpAndSignIn, getBrowser, cleanDatabase } from './testHelpers.test'
+
+describe('User Login', function() {
+    beforeEach(function() {
+        server.call('logout');
+        // cleanDatabase();
+    });
+
+    describe('Sign up and sign in', function() {
+        it('signs up a new user', function() {
+            browser.url('http://localhost:3000/discover');
+            browser.click('#login-sign-in-link');
+            browser.click('#signup-link');
+            browser.setValue('input#login-username', 'Tester');
+            browser.setValue('input#login-email',  'test@test.com');
+            browser.setValue('input#login-password', 'testpassword');
+            browser.keys("\uE006"); //press ENTER
+            browser.waitForExist('#login-name-link');
+            expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
+        });
+    });
+});
