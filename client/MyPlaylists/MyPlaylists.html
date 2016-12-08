@@ -5,8 +5,12 @@
   {{#if playlists}}
     <ul id="playlists_list">
       {{#each playlists}}
-        <li><strong>{{name}}</strong> - {{trackCount}} tracks</li>
+        {{> Playlist}}
       {{/each}}
     </ul>
   {{/if}}
+</template>
+
+<template name="Playlist">
+    <li><a href="/playlist/{{_id}}" class="playlist"><strong >{{name}}</strong></a> - {{trackCount}} tracks</li>
 </template>

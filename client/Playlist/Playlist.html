@@ -1,0 +1,10 @@
+<template name="Tracks">
+  <a href="/myPlaylists">Back to playlists</a>
+  {{#if tracks}}
+    <ul>
+      {{#each tracks}}
+        <li><strong class="track">{{artists}}</strong> - {{name}} </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</template>

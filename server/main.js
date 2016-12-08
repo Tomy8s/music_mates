@@ -19,11 +19,12 @@ Meteor.startup(() => {
 Meteor.methods({
   getPlaylists: function() {
     var spotifyApi = new SpotifyWebApi()
-    var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {})
+    var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
 
     if (checkTokenRefreshed(response, spotifyApi)) {
-      var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {})
+      var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
     }
+    console.log(response);
     return response.data.body.items
   },
 
@@ -54,10 +55,10 @@ Meteor.methods({
       var response = spotifyApi.getPlaylistTracks(playlist.ownerId, playlist.spotifyId, {})
     }
     var trackObjects = response.data.body.items
-    Meteor.call('insertTracks', trackObjects)
+    Meteor.call('insertTracks', trackObjects, playlistId)
   },
 
-  insertTracks: function (trackObjects) {
+  insertTracks: function (trackObjects, playlistId) {
     trackObjects.forEach(function(trackObject){
       var track = trackObject.track;
       var artistObjects = []
@@ -69,6 +70,7 @@ Meteor.methods({
         name: track.name,
         artists: artistObjects,
         spotifyId: track.id,
+        playlistId: playlistId,
       });
     });
   }
