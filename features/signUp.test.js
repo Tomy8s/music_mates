@@ -18,5 +18,15 @@ describe('User Login', function() {
             browser.waitForExist('#login-name-link');
             expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
         });
+
+        it('Signs in existing user', function(){
+          browser.url('http://localhost:3000/discover');
+          browser.click('#login-sign-in-link');
+          browser.setValue('#login-username-or-email', 'Tester');
+          browser.setValue('#login-password', 'testpassword');
+          browser.keys("\uE006");
+          browser.waitForExist('#login-sign-in-link');
+          expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
+        });
     });
 });
