@@ -21,41 +21,47 @@
 
 <template name="friendRequests">
   <h3>Friend requests</h3>
-  {{#if hasRequests}}
-    <p>
-      You have {{currentUser.numRequests}} pending requests
-    </p>
-    {{#each currentUser.requests}}
-    <div class="request">
-      <p>{{userName this.requester}} would like to be friends</p>
-        <a href="#" data-action="accept">Accept</a>
-        <a href="#" data-action="cancel">No thanks</a>
-    </div>
-    {{/each}}
-    {{else}}
-      <p>You have no requests. :( </p>
-    {{/if}}
+  <ul id="requests-received-list">
+    {{#if hasRequests}}
+      <p>
+        You have {{currentUser.numRequests}} pending requests
+      </p>
+      {{#each currentUser.requests}}
+      <li class="request">
+        <p>{{userName this.requester}} would like to be friends</p>
+          <a href="#" data-action="accept">Accept</a>
+          <a href="#" data-action="cancel">No thanks</a>
+      </li>
+      {{/each}}
+      {{else}}
+        <p>You have responded to all your friends' requests.</p>
+      {{/if}}
+    </ul>
 </template>
 
 <template name= "displayFriends">
   <h2>All your Friends</h2>
-  <ul>
-    {{#each currentUser.friends}}
-      <li><span class="user-name">{{userName this.user}}</span>
-      <a href="#" data-action="unfriend" id="unfriend-btn">Unfriend {{ userName this.user }}</a></li>
-    {{/each}}
+  <ul id="friends-list">
+    {{#if hasFriends}}
+      {{#each currentUser.friends}}
+        <li><span class="user-name">{{userName this.user}}</span>
+        <a href="#" data-action="unfriend" id="unfriend-btn">Unfriend {{ userName this.user }}</a></li>
+      {{/each}}
+    {{else}}
+      <p>You don't have any friends yet.</p>
+    {{/if}}
   </ul>
 
   <h3>Friends who haven't confirmed</h3>
-  {{#if hasPendingRequests}}
-    <ul>
+  <ul id="requests-made-list">
+    {{#if hasPendingRequests}}
       {{#each currentUser.pendingRequests}}
         <li><span class="user-name">{{userName this.user}}</span> - <a href="#" data-action="cancel">Cancel pending request</a></li>
       {{/each}}
-    </ul>
-  {{else}}
-      <p>You have no pending friend requests.</p>
-  {{/if}}
+    {{else}}
+      <p>Your friends have already responded to all your requests.</p>
+    {{/if}}
+  </ul>
 </template>
 
 <template name= "suggestedFriends">

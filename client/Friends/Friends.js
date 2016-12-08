@@ -40,6 +40,9 @@ Template.friendRequests.helpers({
 Template.displayFriends.helpers({
     hasPendingRequests: function() {
         return currentUser().numPendingRequests() === 0 ? false : true;
+    },
+    hasFriends: function() {
+        return currentUser().numFriends() === 0 ? false : true;
     }
 });
 

@@ -1,4 +1,4 @@
-import { signUp, signIn, signUpAndSignIn, signOut, cleanDatabase } from './testHelpers.test'
+import { signUp, signIn, signOut, cleanDatabase } from './testHelpers.test'
 
 describe('User Login', function() {
     // beforeEach(function() {

@@ -23,11 +23,6 @@ export function signOut(){
   browser.click('#login-buttons-logout');
 }
 
-export function signUpAndSignIn(browserName, user, password) {
-    signUp(email, password);
-    signIn(browserName, user, password);
-};
-
 export function cleanDatabase() {
     server.execute(function () {
         Package['xolvio:cleaner'].resetDatabase();
