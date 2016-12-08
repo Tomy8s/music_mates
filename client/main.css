@@ -58,6 +58,11 @@ li {
   border-bottom: #eee solid 1px;
 }
 
+.btn {
+  padding: 3px 5px;
+  background-color: #ffcc00;
+}
+
 .selected_route {
   background-color: #ffcc00;
 }
