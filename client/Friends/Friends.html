@@ -1,3 +1,72 @@
+
 <template name='Friends'>
-  <h1>Friends</h1>
+
+  <div class="friends">
+
+    {{> suggestedFriends }}
+
+    <div id="friends">
+
+      <div class="list-div">
+        {{> displayFriends }}
+      </div>
+
+      <div class="list-div">
+        {{> friendRequests }}
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="friendRequests">
+  <h3>Friend requests</h3>
+  {{#if hasRequests}}
+    <p>
+      You have {{currentUser.numRequests}} pending requests
+    </p>
+    {{#each currentUser.requests}}
+    <div class="request">
+      <p>{{userName this.requester}} would like to be friends</p>
+        <a href="#" data-action="accept">Accept</a>
+        <a href="#" data-action="ignore">Ignore</a>
+    </div>
+    {{/each}}
+    {{else}}
+      <p>You have no requests. :( </p>
+    {{/if}}
+</template>
+
+<template name= "displayFriends">
+  <h2>All your Friends</h2>
+  <ul>
+    {{#each currentUser.friends}}
+      <li><span class="user-name">{{userName this.user}}</span>
+      <a href="#" data-action="unfriend" id="unfriend-btn">Unfriend {{ userName this.user }}</a></li>
+    {{/each}}
+  </ul>
+
+  <h3>Friends who haven't confirmed</h3>
+  {{#if hasPendingRequests}}
+    <ul>
+      {{#each currentUser.pendingRequests}}
+        <li><span class="user-name">{{userName this.user}}</span> - <a href="#" data-action="cancel">Cancel pending request</a></li>
+      {{/each}}
+    </ul>
+  {{else}}
+      <p>You have no pending friend requests.</p>
+  {{/if}}
+</template>
+
+<template name= "suggestedFriends">
+  <div id="suggested-friends">
+    <ul>
+    {{#each AllUsers}}
+      {{#unless isMeOrFriend this }}
+      <li>
+      <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ userName this }}</a></li>
+      {{/unless}}
+    {{/each}}
+    </ul>
+  </div>
 </template>
