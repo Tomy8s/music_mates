@@ -1,6 +1,4 @@
 Template.Tracks.rendered = function(){
-  // var id = FlowRouter
-  console.log(FlowRouter._current.params.id);
 };
 
 Template.Tracks.helpers({
