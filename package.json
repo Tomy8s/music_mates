@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Tomy8s/music_mates/issues"
   },
-  "homepage": "https://github.com/Tomy8s/music_mates#readme"
+  "homepage": "https://github.com/Tomy8s/music_mates#readme",
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "bcrypt": "^1.0.1"
+  }
 }
