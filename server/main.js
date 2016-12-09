@@ -24,11 +24,12 @@ Meteor.methods({
     if (checkTokenRefreshed(response, spotifyApi)) {
       var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
     }
-    console.log(response);
+    // console.log(response);
     return response.data.body.items
   },
 
   insertPlaylists: function(newPlaylists){
+    // console.log(newPlaylists);
     newPlaylists.forEach(function(playlist){
       if (Playlists.findOne({userId: Meteor.userId(), spotifyId: playlist.id})){
        return;
@@ -40,7 +41,7 @@ Meteor.methods({
           trackCount: playlist.tracks.total,
           ownerId: playlist.owner.id,
         });
-        Meteor.call('findTracks', playlistId)
+        // Meteor.call('findTracks', playlistId)
       }
     });
     var usersPlaylists = Playlists.find({userId: Meteor.userId()}).fetch();

@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "chimp --ddp=http://localhost:3000 --mocha || exit 0"
+    "meteor": "meteor --settings settings.json",
+    "meteor2": "MONGO_URL=mongodb://localhost:3001/chimp_db meteor --port 3100 --settings settings.json $@",
+    "test": "chimp --ddp=http://localhost:3000 --mocha || exit 0",
+    "test2": "chimp --ddp=http://localhost:3100 --mocha || exit 0",
+    "test2-watch" : "chimp --ddp=http://localhost:3100 --mocha --watch || exit 0",
+    "test-watch" : "chimp --ddp=http://localhost:3000 --mocha --watch || exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tomy8s/music_mates.git"
+    "url": "https://github.com/Tomy8s/music_mates.git"
   },
   "author": "",
   "license": "ISC",
