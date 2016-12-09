@@ -13,7 +13,8 @@
     {{#each AllUsers}}
       {{#unless isMeOrFriend this }}
       <li>
-      <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ userName this }}</a></li>
+      <a href="/profile/{{_id}}" type="button" name="{{_id}}" id="profile-link">{{ userName this }} </a>
+      <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow</a></li>
       <span>{{ compatibility this }}% compatible</span>
       {{/unless}}
     {{/each}}
