@@ -7,7 +7,7 @@
 
 <template name='profileDetails'>
   <h3>{{ userName userInfo }} Profile</h3>
-  <img src="{{ profile.images[0].url }}">
+  <img src="{{userImage}}">
    {{#each userPlaylists}}
      {{> userPlaylist}}
    {{/each}}

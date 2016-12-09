@@ -68,9 +68,6 @@ li {
 }
 
 #suggested-friends {
-  background-color: #d0edf5;
   min-height: 100%;
-  float :right;
-  width: 20%;
-  padding : 0 10px;
+  padding : 10px 10px;
 }
