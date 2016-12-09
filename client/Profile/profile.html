@@ -1,7 +1,7 @@
 <template name='Profile'>
-
-{{> profileDetails}}
-
+{{#if currentUser}}
+ {{> profileDetails}}
+{{/if}}
 </template>
 
 
