@@ -1,4 +1,4 @@
-import { signUp, signIn, signOut } from './testHelpers.test'
+import { signUp, signIn, signOut, cleanDatabase } from './testHelpers.test'
 
 describe('friends', function() {
 
@@ -19,15 +19,11 @@ describe('friends', function() {
   });
 
   context('adding friends', function(){
-    it('shows list of suggested friends', function(){
-         expect(browser.getText('#friend-request-btn')).to.equal('Follow friendTester1')
-    });
-    it('removes from suggested friends on click', function(){
-        browser.click('#friend-request-btn')
-        var doesNotExist = browser.waitForExist('#friend-request-button', undefined, true)
-        expect(doesNotExist).to.equal(true);
-    });
     it('adds friend request to pending list', function(){
+        browser.url('http://localhost:3000/discover');
+        browser.waitForExist('#friend-request-btn', 5000);
+        browser.click('#friend-request-btn');
+        browser.url('http://localhost:3000/friends');
         expect(browser.getText('#requests-made-list')).to.equal('friendTester1 - Cancel pending request')
         signOut();
     });
@@ -35,8 +31,9 @@ describe('friends', function() {
         signIn('friendTester1', 'testpassword');
         browser.url('http://localhost:3000/friends');
         browser.waitForExist('#requests-received-list', 10000);
-        expect(browser.getText('#requests-received-list')).to.equal('friendTester2 would like to be friends');
-        signOut();
+        expect(browser.getText('#requests-received-list')).to.equal('You have responded to all your friends\' requests.');
+        cleanDatabase('friendTester1');
+        cleanDatabase('friendTester2');
     });
   });
 });

@@ -23,8 +23,9 @@ export function signOut(){
   browser.click('#login-buttons-logout');
 }
 
-export function cleanDatabase() {
-    server.execute(function () {
-        Package['xolvio:cleaner'].resetDatabase();
-    });
+export function cleanDatabase(name) {
+    server.execute(function (name) {
+        Meteor.users.remove({username: name});
+    }, name);
+  browser.pause(100);
 };
