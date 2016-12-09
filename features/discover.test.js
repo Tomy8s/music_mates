@@ -9,7 +9,7 @@ describe('Discover', function(){
       signUp('discoverTester2', 'discover2@test.com', 'testpassword');
       browser.url('http://localhost:3000/discover')
       browser.waitForExist('#friend-request-btn', 5000);
-      expect(browser.getText('#friend-request-btn')).to.equal('Follow discoverTester1')
+      expect(browser.getText('#friend-request-btn')).to.equal('Follow')
   });
   it('removes from suggested friends on click', function(){
       browser.click('#friend-request-btn')

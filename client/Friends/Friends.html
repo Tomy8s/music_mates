@@ -1,10 +1,9 @@
 
 <template name='Friends'>
 
+  {{#if currentUser}}
   <div class="friends">
-
-    <!-- {{> suggestedFriends }} -->
-
+    
     <div id="friends">
 
       <div class="list-div">
@@ -16,6 +15,7 @@
       </div>
     </div>
   </div>
+  {{/if}}
 
 </template>
 

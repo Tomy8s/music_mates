@@ -1,21 +1,20 @@
 import { Template } from 'meteor/templating';
 
-function currentUser(){
-  return Meteor.user();
-}
+var currentUser = Meteor.user();
 
 Template.friendRequests.helpers({
   hasRequests:function(){
-      return currentUser().numRequests() === 0 ? false : true;
+      return Meteor.user().numRequests() === 0 ? false : true;
   }
 });
 
 Template.displayFriends.helpers({
     hasPendingRequests: function() {
-        return currentUser().numPendingRequests() === 0 ? false : true;
+        return Meteor.user().numPendingRequests() === 0 ? false : true;
     },
     hasFriends: function() {
-        return currentUser().numFriends() === 0 ? false : true;
+        console.log(Meteor.user().friends());
+        return Meteor.user().friends().count() === 0 ? false : true;
     }
 });
 

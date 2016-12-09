@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "bcrypt": "^1.0.0",
-    "chimp": "^0.44.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "chimp --ddp=http://localhost:3000 --mocha || exit 0"
   },
