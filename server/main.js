@@ -61,6 +61,7 @@ Meteor.methods({
 
   insertTracks: function (trackObjects, playlistId) {
     trackObjects.forEach(function(trackObject){
+      console.log(trackObject);
       var track = trackObject.track;
       var artistObjects = []
       track.artists.forEach(function(artist){
