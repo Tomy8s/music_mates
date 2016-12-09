@@ -1,24 +1,25 @@
 import { Template } from 'meteor/templating';
 
-function currentUser(){
-  return Meteor.user();
-}
+var currentUser = Meteor.user();
+
+// function currentUser{
+//   return Meteor.user();
+// }
 
 function isItMe(user){
-  return currentUser()._id === user._id ? true : false;
+  return Meteor.user()._id === user._id ? true : false;
 }
 
 function isFriend(user){
-  var arr = currentUser().friendsAsUsers().fetch();
+  var arr = Meteor.user().friendsAsUsers().fetch();
   var ids = arr.map(function(usr) {
     return usr._id;
   });
-  // var ids = currentUser().friends().find({friendId: user._id}).fetch();
   return ids.includes(user._id) ? true : false;
 }
 
 function isRequestedFriend(user) {
-    return currentUser().hasRequestFrom(user) || user.hasRequestFrom(currentUser()) ? true : false;
+    return Meteor.user().hasRequestFrom(user) || user.hasRequestFrom(Meteor.user()) ? true : false;
 }
 
 Template.suggestedFriends.helpers({
@@ -33,16 +34,17 @@ Template.suggestedFriends.helpers({
 
 Template.friendRequests.helpers({
   hasRequests:function(){
-      return currentUser().numRequests() === 0 ? false : true;
+      return Meteor.user().numRequests() === 0 ? false : true;
   }
 });
 
 Template.displayFriends.helpers({
     hasPendingRequests: function() {
-        return currentUser().numPendingRequests() === 0 ? false : true;
+        return Meteor.user().numPendingRequests() === 0 ? false : true;
     },
     hasFriends: function() {
-        return currentUser().numFriends() === 0 ? false : true;
+        console.log(Meteor.user().friends());
+        return Meteor.user().friends().count() === 0 ? false : true;
     }
 });
 

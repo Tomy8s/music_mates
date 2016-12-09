@@ -1,5 +1,7 @@
 <template name='LoginButtons'>
   {{> loginButtons}}
-  <strong>{{ userName currentUser }}</strong>
+  {{#if currentUser}}
+    <strong>{{ userName currentUser }}</strong>
+  {{/if}}
   <h1>Music Mates</h1>
 </template>
