@@ -40,7 +40,7 @@ Meteor.methods({
           trackCount: playlist.tracks.total,
           ownerId: playlist.owner.id,
         });
-        Meteor.call('findTracks', playlistId)
+        // Meteor.call('findTracks', playlistId)
       }
     });
     var usersPlaylists = Playlists.find({userId: Meteor.userId()}).fetch();
