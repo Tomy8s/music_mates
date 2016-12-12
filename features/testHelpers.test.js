@@ -17,7 +17,6 @@ export function signIn(username, password) {
   browser.setValue('#login-username-or-email', username);
   browser.setValue('#login-password', password);
   browser.keys("\uE006"); //press ENTER
-  browser.pause(200);
 };
 
 export function signOut(){

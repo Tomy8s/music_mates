@@ -2,7 +2,7 @@
 // var mockPlaylists;
 // var mockTracks = [];
 //
-// describe('playlists feature @watch', function(){
+// describe('playlists feature', function(){
 //
 //   beforeEach(function() {
 //     cleanDatabase();

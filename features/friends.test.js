@@ -7,9 +7,7 @@ describe('friends', function() {
         // console.log('meteor running on:', server._original.host + ':' + server._original.port);
         server.call('logout');
         cleanDatabase();
-        createAccount('friendTester1', 'friend1@test.com', 'testpassword');
-        signIn('friendTester1', 'testpassword');
-
+        signUp('friendTester1', 'friend1@test.com', 'testpassword');
         browser.url('http://localhost:3100/friends');
         browser.waitForExist('#friends-list', 5000);
         expect(browser.getText('#friends-list')).to.equal("You don't have any friends yet.");
@@ -24,7 +22,7 @@ describe('friends', function() {
     });
   });
 
-  context('adding friends @watch', function(){
+  context('adding friends', function(){
     it('adds friend request to pending list', function(){
         signOut();
         signUp('friendTester2', 'friend2@test.com', 'testpassword');
@@ -38,6 +36,7 @@ describe('friends', function() {
     });
     it('adds friend request to friend request list', function(){
         signIn('friend1@test.com', 'testpassword');
+        browser.waitForExist('#login-name-link', 5000);
         browser.url('http://localhost:3100/friends');
         browser.waitForExist('#requests-received-list', 10000);
         expect(browser.getText('#requests-received-list')).to.equal('You have 1 pending requests\nfriendTester2 would like to be friends\nAccept No thanks');
