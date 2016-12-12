@@ -1,7 +1,9 @@
 <template name="Tracks">
   <div id="container">
     <a href="/myPlaylists" id="back-to-playlist-link">Back to playlists</a>
+
     {{#if tracks}}
+    {{> player}}
       <ul>
         {{#each tracks}}
           <li><strong class="track">{{artists}}</strong> - {{name}} </li>
@@ -9,4 +11,8 @@
       </ul>
     {{/if}}
   </div>
+</template>
+
+<template name='player'>
+  <iframe src="https://embed.spotify.com/?uri=spotify:user:{{playerId.ownerId}}:playlist:{{playerId.spotifyId}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 </template>

@@ -26,7 +26,7 @@ describe('User Login', function() {
         it('wont sign in non registered user', function(){
             signIn('NoUser', 'testpassword');
             expect(browser.getText('.message.error-message')).to.equal('User not found');
-            cleanDatabase();
+            cleanDatabase('Tester');
         });
     });
 });

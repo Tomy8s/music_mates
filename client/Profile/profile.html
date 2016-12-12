@@ -1,0 +1,18 @@
+<template name='Profile'>
+{{#if currentUser}}
+ {{> profileDetails}}
+{{/if}}
+</template>
+
+
+<template name='profileDetails'>
+  <h3>{{ userName userInfo }} Profile</h3>
+  <img src="{{userImage}}">
+   {{#each userPlaylists}}
+     {{> userPlaylist}}
+   {{/each}}
+</template>
+
+<template name="userPlaylist">
+    <li><a href="/playlist/{{_id}}" class="playlist"><strong >{{name}}</strong></a> - {{trackCount}} tracks</li>
+</template>

@@ -24,15 +24,16 @@ Meteor.methods({
     if (checkTokenRefreshed(response, spotifyApi)) {
       var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
     }
-    // console.log(response);
+
     return response.data.body.items
   },
 
   insertPlaylists: function(newPlaylists){
     // console.log(newPlaylists);
     newPlaylists.forEach(function(playlist){
-      if (Playlists.findOne({userId: Meteor.userId(), spotifyId: playlist.id})){
-       return;
+      var existingPlaylist = Playlists.findOne({userId: Meteor.userId(), spotifyId: playlist.id});
+      if (existingPlaylist){
+        Meteor.call('updatePlaylist', existingPlaylist._id, playlist);
       } else {
         var playlistId = Playlists.insert({
           userId: Meteor.userId(),
@@ -68,14 +69,49 @@ Meteor.methods({
       track.artists.forEach(function(artist){
         artistObjects.push({name: artist.name, spotifyId: artist.id})
       });
-      Tracks.insert({
-        userId: Meteor.userId(),
-        name: track.name,
-        artists: artistObjects,
-        spotifyId: track.id,
-        playlistId: playlistId,
-      });
+
+      if(Tracks.findOne({userId: Meteor.userId(), playlistId: playlistId, spotifyId: track.id})){
+        return;
+      } else {
+        Tracks.insert({
+          userId: Meteor.userId(),
+          name: track.name,
+          artists: artistObjects,
+          spotifyId: track.id,
+          playlistId: playlistId,
+        });
+      }
     });
+
+    Meteor.call('removeDeletedTracks', trackObjects, playlistId);
+  },
+
+  updatePlaylist: function(playlistId, spotifyPlaylist){
+    Playlists.update(playlistId, {$set:{
+      trackCount: spotifyPlaylist.tracks.total
+    }});
+
+    Meteor.call('findTracks', playlistId)
+  },
+
+  // deletes tracks from database if they were removed in Spotify
+  removeDeletedTracks: function(trackObjects, playlistId) {
+    var spotifyTracksIds = [];
+    trackObjects.forEach(function(trackObj){
+      spotifyTracksIds.push(trackObj.track.id);
+    });
+
+    var tracks = Tracks.find({playlistId: playlistId}).fetch();
+    var trackIdsInDatabase = [];
+    tracks.forEach(function(track){
+      trackIdsInDatabase.push(track.spotifyId);
+    });
+
+    var deletedTracksIds = _.difference(trackIdsInDatabase, spotifyTracksIds);
+
+    deletedTracksIds.forEach(function(id){
+      Tracks.remove({playlistId: playlistId, spotifyId: id});
+    })
   }
 
 });
