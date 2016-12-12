@@ -1,6 +1,4 @@
 Template.Tracks.rendered = function(){
-  // var id = FlowRouter
-  console.log(FlowRouter._current.params.id);
 };
 
 Template.Tracks.helpers({
@@ -17,5 +15,13 @@ Template.Tracks.helpers({
     })
     var artists = artistNames.join(", ")
     return artists
+  }
+})
+
+Template.player.helpers({
+  playerId: function(){
+    var playlist = FlowRouter._current.params.id
+    var spotifyPlayer = Playlists.findOne({ _id: playlist});
+    return spotifyPlayer;
   }
 })
