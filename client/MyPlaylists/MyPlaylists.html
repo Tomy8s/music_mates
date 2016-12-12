@@ -1,7 +1,7 @@
 <template name='MyPlaylists'>
   <h1>My Playlists</h1>
-  <button type="button" class="btn" id="import_playlists">Import Your Spotify Playlists</button>
-
+  <button type="button" class="btn" id="import_playlists">Import/Update Your Spotify Playlists</button>
+  <img src='ajax-loader.gif' id='playlist_loading_gif' style='display: none'>
   {{#if playlists}}
     <ul id="playlists_list">
       {{#each playlists}}
