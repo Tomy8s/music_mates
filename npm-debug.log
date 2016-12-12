@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'meteor' ]
+2 info using npm@4.0.5
+3 info using node@v6.9.1
+4 verbose run-script [ 'premeteor', 'meteor', 'postmeteor' ]
+5 info lifecycle music_mates@1.0.0~premeteor: music_mates@1.0.0
+6 silly lifecycle music_mates@1.0.0~premeteor: no script for premeteor, continuing
+7 info lifecycle music_mates@1.0.0~meteor: music_mates@1.0.0
+8 verbose lifecycle music_mates@1.0.0~meteor: unsafe-perm in lifecycle true
+9 verbose lifecycle music_mates@1.0.0~meteor: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/Irene/Desktop/meteor/music_mates/node_modules/.bin:/Users/Irene/.rvm/gems/ruby-2.3.1/bin:/Users/Irene/.rvm/gems/ruby-2.3.1@global/bin:/Users/Irene/.rvm/rubies/ruby-2.3.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Irene/.rvm/bin
+10 verbose lifecycle music_mates@1.0.0~meteor: CWD: /Users/Irene/Desktop/meteor/music_mates
+11 silly lifecycle music_mates@1.0.0~meteor: Args: [ '-c', 'meteor --settings settings.json' ]
+12 silly lifecycle music_mates@1.0.0~meteor: Returned: code: 254  signal: null
+13 info lifecycle music_mates@1.0.0~meteor: Failed to exec meteor script
+14 verbose stack Error: music_mates@1.0.0 meteor: `meteor --settings settings.json`
+14 verbose stack Exit status 254
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid music_mates@1.0.0
+16 verbose cwd /Users/Irene/Desktop/meteor/music_mates
+17 error Darwin 15.2.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "meteor"
+19 error node v6.9.1
+20 error npm  v4.0.5
+21 error code ELIFECYCLE
+22 error music_mates@1.0.0 meteor: `meteor --settings settings.json`
+22 error Exit status 254
+23 error Failed at the music_mates@1.0.0 meteor script 'meteor --settings settings.json'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the music_mates package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     meteor --settings settings.json
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs music_mates
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls music_mates
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
