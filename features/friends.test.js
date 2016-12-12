@@ -3,8 +3,9 @@ import { signUp, signIn, signOut, cleanDatabase } from './testHelpers.test'
 describe('friends', function() {
 
   context('no friends', function(){
-    it('displays "You have no friends", when no friends', function() {
+    it('displays "You have no friends", when no friends @watch', function() {
         // console.log('meteor running on:', server._original.host + ':' + server._original.port);
+        server.call('logout');
         cleanDatabase();
         signUp('friendTester1', 'freind1@test.com', 'testpassword');
         signOut();
@@ -39,8 +40,8 @@ describe('friends', function() {
         browser.waitForExist('#login-name-link', 5000);
         browser.url('http://localhost:3100/friends');
         browser.waitForExist('#requests-received-list', 10000);
-        // expect(browser.getText('#requests-received-list')).to.equal('friendTester2 would like to be friends');
-        // signOut();
+        expect(browser.getText('#requests-received-list')).to.equal('friendTester2 would like to be friends');
+        signOut();
     });
   });
 });
