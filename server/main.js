@@ -45,6 +45,7 @@ Meteor.methods({
       }
     });
     var usersPlaylists = Playlists.find({userId: Meteor.userId()}).fetch();
+    console.log(userPlaylists);
     return usersPlaylists
   },
 
