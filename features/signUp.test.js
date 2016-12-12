@@ -1,13 +1,11 @@
 import { signUp, signIn, signOut, cleanDatabase } from './testHelpers.test'
 
 describe('User Login', function() {
-    // beforeEach(function() {
-    //     server.call('logout');
-    //     cleanDatabase();
-    // });
 
     describe('Sign up and sign in', function() {
         it('signs up a new user', function() {
+            server.call('logout');
+            cleanDatabase();
             signUp('Tester', 'test@test.com', 'testpassword')
             expect(browser.getText('#login-name-link')).to.equal('Tester ▾');
         });
