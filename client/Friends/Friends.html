@@ -3,7 +3,7 @@
 
   {{#if currentUser}}
   <div class="friends">
-    
+
     <div id="friends">
 
       <div class="list-div">
@@ -29,8 +29,8 @@
       {{#each currentUser.requests}}
       <li class="request">
         <p>{{userName this.requester}} would like to be friends</p>
-          <a href="#" data-action="accept">Accept</a>
-          <a href="#" data-action="cancel">No thanks</a>
+          <a href="#" data-action="accept" id='accept-friend-request'>Accept</a>
+          <a href="#" data-action="cancel" id='cancel-friend-request'>No thanks</a>
       </li>
       {{/each}}
       {{else}}
