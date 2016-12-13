@@ -4,10 +4,6 @@ function currentUser(){
   return Meteor.user();
 }
 
-function isItMe(user){
-  return currentUser()._id === user._id ? true : false;
-}
-
 function isFriend(user){
   var arr = currentUser().friendsAsUsers().fetch();
   var ids = arr.map(function(usr) {
@@ -34,15 +30,11 @@ function commonTracks(user) {
   return commonTrax
 }
 
-function sortByCompatibility(users){
-  return users
-}
-
-
 Template.suggestedFriends.helpers({
-  AllUsers: function(){
-    var allUsers = Meteor.users.find();
-    return sortByCompatibility(allUsers);
+  compatibleUsers: function(){
+    var allExceptMe = Meteor.users.find( { _id: {$ne: Meteor.userId()} } ).fetch();
+    var compatibleMates = _.sortBy(allExceptMe, function(user) { return getCompatibility(user) * -1 });
+    return compatibleMates;
   },
 
   compatibility: function(user){
@@ -54,8 +46,8 @@ Template.suggestedFriends.helpers({
     return commonTracks(user).length
  },
 
-  isMeOrFriend: function(user){
-    return isItMe(user) || isFriend(user) || isRequestedFriend(user) ? true : false;
+  isFriend: function(user){
+    return isFriend(user) || isRequestedFriend(user) ? true : false;
   }
 });
 

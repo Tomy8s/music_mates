@@ -10,8 +10,8 @@
 <template name= "suggestedFriends">
   <div id="suggested-friends">
     <ul>
-    {{#each AllUsers}}
-      {{#unless isMeOrFriend this }}
+    {{#each compatibleUsers}}
+      {{#unless isFriend this }}
         <li>
         <a href="/profile/{{_id}}" type="button" name="{{_id}}" id="profile-link">{{ userName this }} </a>
         <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow</a></li>
