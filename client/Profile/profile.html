@@ -7,10 +7,14 @@
 
 <template name='profileDetails'>
   <h3>{{ userName userInfo }} Profile</h3>
-  <img src="{{userImage}}">
-   {{#each userPlaylists}}
-     {{> userPlaylist}}
-   {{/each}}
+
+  {{#if userImage}}
+    <img src="{{userImage}}">
+  {{/if}}
+
+  {{#each userPlaylists}}
+    {{> userPlaylist}}
+  {{/each}}
 </template>
 
 <template name="userPlaylist">
