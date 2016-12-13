@@ -4,7 +4,7 @@ Template.CommonTracks.helpers({
     var userId = FlowRouter._current.params.userId;
     var user = Meteor.users.findOne(userId);
     var commonTrax = _.intersection(user.tracks, Meteor.user().tracks);
-    var tracks = Tracks.find( {$and: [{spotifyId: {$all: commonTrax}}, {userId: user._id}]} ).fetch();
+    var tracks = Tracks.find( {$and: [{spotifyId: {$in: commonTrax}}, {userId: user._id}]} ).fetch();
     return tracks
   },
 
