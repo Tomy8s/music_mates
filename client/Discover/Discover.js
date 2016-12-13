@@ -33,8 +33,12 @@ function commonTracks(user) {
 Template.suggestedFriends.helpers({
   compatibleUsers: function(){
     var allExceptMe = Meteor.users.find( { _id: {$ne: Meteor.userId()} } ).fetch();
-    var compatibleMates = _.sortBy(allExceptMe, function(user) { return getCompatibility(user) * -1 });
-    return compatibleMates;
+    if (!Meteor.user().services.spotify) {
+      return allExceptMe;
+    } else {
+      var compatibleMates = _.sortBy(allExceptMe, function(user) { return getCompatibility(user) * -1 });
+      return compatibleMates;
+    }
   },
 
   compatibility: function(user){
@@ -48,6 +52,10 @@ Template.suggestedFriends.helpers({
 
   isFriend: function(user){
     return isFriend(user) || isRequestedFriend(user) ? true : false;
+  },
+
+  userHasAnyTracks: function(){
+    return Meteor.user().tracks.length > 0
   }
 });
 
