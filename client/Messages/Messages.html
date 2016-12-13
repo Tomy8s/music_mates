@@ -1,6 +1,23 @@
 <template name='Messages'>
   <h1>Messages</h1>
+
   <ul id="message-list">
     <p>You currently have no conversations.</p>
+  </ul>
+</template>
+
+
+
+<template name= "displayMessagesFriends">
+  <h2>Your Friends</h2>
+  <ul id="messages-friends-list">
+    {{#if hasFriends}}
+      {{#each currentUser.friends}}
+        <li><span class="user-name">{{userName this.user}}: </span>
+        <a href="#" class="send-message-link">Send message</a></li>
+      {{/each}}
+    {{else}}
+      <p>You don't have any friends yet.</p>
+    {{/if}}
   </ul>
 </template>

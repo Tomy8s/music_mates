@@ -19,26 +19,6 @@
 
 </template>
 
-<template name="friendRequests">
-  <h3>Friend requests</h3>
-  <ul id="requests-received-list">
-    {{#if hasRequests}}
-      <p>
-        You have {{currentUser.numRequests}} pending requests
-      </p>
-      {{#each currentUser.requests}}
-      <li class="request">
-        <p>{{userName this.requester}} would like to be friends</p>
-          <a href="#" data-action="accept" id='accept-friend-request'>Accept</a>
-          <a href="#" data-action="cancel" id='cancel-friend-request'>No thanks</a>
-      </li>
-      {{/each}}
-      {{else}}
-        <p>You have responded to all your friends' requests.</p>
-      {{/if}}
-    </ul>
-</template>
-
 <template name= "displayFriends">
   <h2>All your Friends</h2>
   <ul id="friends-list">
@@ -62,6 +42,26 @@
       <p>Your friends have already responded to all your requests.</p>
     {{/if}}
   </ul>
+</template>
+
+<template name="friendRequests">
+  <h3>Friend requests</h3>
+  <ul id="requests-received-list">
+    {{#if hasRequests}}
+      <p>
+        You have {{currentUser.numRequests}} pending requests
+      </p>
+      {{#each currentUser.requests}}
+      <li class="request">
+        <p>{{userName this.requester}} would like to be friends</p>
+          <a href="#" data-action="accept" id='accept-friend-request'>Accept</a>
+          <a href="#" data-action="cancel" id='cancel-friend-request'>No thanks</a>
+      </li>
+      {{/each}}
+      {{else}}
+        <p>You have responded to all your friends' requests.</p>
+      {{/if}}
+    </ul>
 </template>
 
 <!-- <template name= "suggestedFriends">
