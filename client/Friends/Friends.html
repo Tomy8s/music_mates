@@ -54,8 +54,8 @@
       {{#each currentUser.requests}}
       <li class="request">
         <p>{{userName this.requester}} would like to be friends</p>
-          <a href="#" data-action="accept" id='accept-friend-request'>Accept</a>
-          <a href="#" data-action="cancel" id='cancel-friend-request'>No thanks</a>
+          <a href="#" data-action="accept" class='accept-friend-request'>Accept</a>
+          <a href="#" data-action="cancel" class='cancel-friend-request'>No thanks</a>
       </li>
       {{/each}}
       {{else}}
@@ -70,7 +70,7 @@
     {{#each AllUsers}}
       {{#unless isMeOrFriend this }}
       <li>
-      <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ userName this }}</a></li>
+      <a href="#" type="button" name="{{this._id}}" class="friend-request-btn">Follow {{ userName this }}</a></li>
       <span>{{ compatibility this }}% compatible</span>
       {{/unless}}
     {{/each}}

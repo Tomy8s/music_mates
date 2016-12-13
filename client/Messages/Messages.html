@@ -1,12 +1,12 @@
 <template name='Messages'>
   <h1>Messages</h1>
 
-  <ul id="message-list">
+  {{> displayMessagesFriends}}
+
+  <ul id="messages-list">
     <p>You currently have no conversations.</p>
   </ul>
 </template>
-
-
 
 <template name= "displayMessagesFriends">
   <h2>Your Friends</h2>

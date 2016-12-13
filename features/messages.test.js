@@ -1,6 +1,6 @@
 import { signUp, signIn, signOut,login, cleanDatabase, createAccount } from './testHelpers.test'
 
-describe('Messages @watch', function(){
+describe('Messages', function(){
 
   beforeEach(function() {
     cleanDatabase();
@@ -11,7 +11,7 @@ describe('Messages @watch', function(){
    it('displays a message if you have no converstations', function(){
      browser.url('http://localhost:3100/messages');
      browser.pause(200)
-     expect(browser.getText('#message-list')).to.equal('You currently have no conversations.');
+     expect(browser.getText('#messages-list')).to.equal('You currently have no conversations.');
    });
 
    it('displays a list of your friends on the page @watch', function(){
@@ -23,11 +23,11 @@ describe('Messages @watch', function(){
      signIn('user', 'password');
      browser.pause(200);
      browser.url('http://localhost:3100/friends');
-     browser.waitForExist('#accept-friend-request', 5000);
-     browser.click('#accept-friend-request');
+     browser.waitForExist('#requests-received-list', 5000);
+     browser.click('#requests-received-list .accept-friend-request');
      browser.url('http://localhost:3100/messages')
      browser.pause(200)
-     expect(browser.getText('#messages-friend-list')).to.equal('user: Send message');
+     expect(browser.getText('#messages-friends-list')).to.equal('user2: Send message');
    });
   });
 
