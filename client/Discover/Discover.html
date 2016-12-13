@@ -16,6 +16,9 @@
       <a href="/profile/{{_id}}" type="button" name="{{_id}}" id="profile-link">{{ userName this }} </a>
       <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow</a></li>
       <span>{{ compatibility this }}% compatible</span>
+      <p>
+        You have {{commonTracks this}} common Tracks
+      </p>
       {{/unless}}
     {{/each}}
     </ul>

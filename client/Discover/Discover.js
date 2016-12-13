@@ -54,8 +54,16 @@ function isRequestedFriend(user) {
       var myTracksIds = getTracks(currentUser())
       var userTracksIds = getTracks(user);
       var intersection = array_intersect(myTracksIds, userTracksIds);
+      commonTracks(intersection)
       var percentage = get_compatibility(myTracksIds.length, intersection.length)
       return Math.ceil(percentage)
+    },
+
+    commonTracks: function(user){
+      var myTracksIds = getTracks(currentUser())
+      var userTracksIds = getTracks(user);
+      var intersection = array_intersect(myTracksIds, userTracksIds);
+      return intersection.length
     },
 
     isMeOrFriend: function(user){
