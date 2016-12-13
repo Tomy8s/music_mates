@@ -2,8 +2,11 @@ import { signUp, signIn, signOut,login, cleanDatabase, createAccount } from './t
 
 describe('Menu links', function() {
   context('not logged in', function() {
-    it('redirects a user to the homepage @watch', function(){
+    it('redirects a user to the homepage', function(){
+      server.call('logout');
+      cleanDatabase();
       browser.url('http://localhost:3100/myPlaylists');
+      browser.waitForExist('#home_header', 5000);
       expect(browser.getUrl()).to.equal('http://localhost:3100/');
     });
   });
@@ -43,6 +46,13 @@ describe('Menu links', function() {
         browser.click('#friends');
         expect(browser.getUrl()).to.equal('http://localhost:3100/friends')
       });
+      // 
+      // it('changes url to profile on click', function(){
+      //   browser.url('http://localhost:3100/discover');
+      //   browser.waitForExist('#myPlaylists', 5000);
+      //   browser.click('#profile');
+      //   expect(browser.getUrl()).to.equal('http://localhost:3100/profile')
+      // });
     });
   });
 });

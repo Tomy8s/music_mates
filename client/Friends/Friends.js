@@ -13,7 +13,7 @@ Template.displayFriends.helpers({
         return Meteor.user().numPendingRequests() === 0 ? false : true;
     },
     hasFriends: function() {
-        console.log(Meteor.user().friends());
+        // console.log(Meteor.user().friends());
         return Meteor.user().friends().count() === 0 ? false : true;
     }
 });

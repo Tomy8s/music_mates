@@ -1,5 +1,5 @@
 export function signUp(username, email, password) {
-  browser.url('http://localhost:3100/discover');
+  browser.url('http://localhost:3100');
   browser.waitForExist('#login-sign-in-link', 5000);
   browser.click('#login-sign-in-link');
   browser.click('#signup-link');
@@ -11,7 +11,7 @@ export function signUp(username, email, password) {
 };
 
 export function signIn(username, password) {
-  browser.url('http://localhost:3100/discover');
+  browser.url('http://localhost:3100');
   browser.waitForExist('#login-sign-in-link', 10000);
   browser.click('#login-sign-in-link');
   browser.setValue('#login-username-or-email', username);
@@ -24,20 +24,14 @@ export function signOut(){
   browser.click('#login-buttons-logout');
 }
 
-export function cleanDatabase(name) {
-    server.execute(function (name) {
-        Meteor.users.remove({username: name});
-    }, name);
-  browser.pause(100);
+export function cleanDatabase() {
+  server.execute(function() {
+    Package['xolvio:cleaner'].resetDatabase();
+  });
 };
 
 export function createAccount(username, email, password) {
   server.execute(function(username, email, password){
     Accounts.createUser({username: username, email: email, password: password});
   }, username, email, password);
-}
-
-export function login(username, password) {
-  browser.url('http://localhost:3100/discover');
-  signIn(username, password)
 }
