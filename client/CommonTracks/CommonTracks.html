@@ -1,0 +1,13 @@
+<template name="CommonTracks">
+  <div id="container">
+    <a href="javascript:history.back()">Go Back</a>
+
+    {{#if tracks}}
+      <ul>
+        {{#each tracks}}
+          <li><strong class="track">{{artists}}</strong> - {{name}} </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+</template>
