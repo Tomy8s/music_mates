@@ -1,6 +1,6 @@
 import { signUp, signIn, signOut,login, cleanDatabase, createAccount } from './testHelpers.test'
 
-describe('Messages', function(){
+describe('Messages @watch', function(){
 
   beforeEach(function() {
     cleanDatabase();
@@ -11,7 +11,7 @@ describe('Messages', function(){
    it('displays a message if you have no converstations', function(){
    browser.url('http://localhost:3100/messages');
    browser.pause(200)
-   expect(browser.getText('#message-list')).to.equal('You currently have no converstations');
+   expect(browser.getText('#message-list')).to.equal('You currently have no conversations.');
    });
   });
 
