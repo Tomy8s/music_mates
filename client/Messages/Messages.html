@@ -9,7 +9,7 @@
 
 <template name= "displayMessagesFriends">
   <div id="friends-messages-container">
-    <h2>Your Friends</h2>
+    <h2 id='message_friends_title'>Your Friends</h2>
     <ul id="messages-friends-list">
       {{#if hasFriends}}
         {{#each currentUser.friends}}
@@ -30,7 +30,7 @@
     <div id="chat">
       {{#each displayMessages conversationId }}
         <p class="message">
-          <strong>{{user.username}}: </strong>{{body}}
+          <strong id='user_name_message'>{{user.username}}: </strong>{{body}}
         </p>
       {{/each}}
       {{scrollToTop}}

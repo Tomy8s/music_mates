@@ -1,20 +1,61 @@
 #chat-container {
-  border: 1px solid #ddd;
-  float: right;
+  position: relative;
+  border: 5px solid beige;
+  margin-top: 10px;
+  padding-left: 5px;
+  float:right;
   width: 400px;
+  height: 400px;
+}
+
+#chat-form {
+  margin-top: 7px;
+  position: absolute;
+}
+
+#submit-message{
+  position: relative;
+  outline: none;
+  background-color: white;
+  border-radius: 5px;
+  color: #666666
+}
+
+#user_name_message{
+  color: #999999;
+}
+
+#message_friends_title{
+  padding-top: 10px;
+  padding-left: 140px;
+  font-weight: 900;
 }
 
 #friends-messages-container {
-  border: 1px solid #ddd;
+  padding-left: 5px;
+  margin-top: 10px;
+  border: 5px solid beige;
   float: left;
-  width: 145px;
+  width: 400px;
+  height: 400px;
+}
+
+.start-chat-link {
+ padding-top: 15px;
+ padding-left: 10px;
+}
+
+.start-chat-link:hover{
+  color: #e53509;
 }
 
 #chat {
+  outline: none;
   height: 400px;
   overflow:scroll;
 }
 
 #message-input {
+  outline: none;
   width: 325px;
 }

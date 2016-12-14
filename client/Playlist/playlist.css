@@ -2,3 +2,29 @@
   margin: 15px 0;
   display: block;
 }
+
+#spotify_player{
+ padding-top: 15px;
+}
+
+#go_back_button{
+ padding-top: 15px;
+ padding-right: 10px;
+ float: left;
+ color: #666666
+}
+
+#go_back_button:hover{
+  color: #e53509;
+}
+
+#track_list{
+  padding-top: 10px;
+  padding-left: 60px;
+}
+
+#playlist_title{
+  padding-top: 40px;
+  padding-left: 290px;
+  color: #666666
+}
