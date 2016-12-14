@@ -5,7 +5,6 @@
 
   {{> currentConversations }}
 
-
 </template>
 
 <template name= "displayMessagesFriends">
@@ -23,26 +22,19 @@
 </template>
 
 <template name="currentConversations">
-  <!--<div id="chat">
+
+  <div id="chat">
     {{#each displayMessages conversationId }}
       <p class="message">
-        <strong style="height:250px">{{user.username}}: </strong>{{body}}
+        <strong style="height:250px">{{user.username}}:</strong>
+        {{body}}
       </p>
     {{/each}}
-  </div>-->
+  </div>
 
-       <div id="chat">
-     {{#each displayMessages conversationId }}
-     <p class="message">
-        <strong style="height:250px">{{user.username}}:</strong>
-       {{body}}
-       </p>
-    {{/each}}
-   </div>
-
-   {{#if chatActive }}
+  {{#if chatActive }}
     <input id="message-input" type="text">
     <button value="{{conversationId}}" id="submit-message">Send</button>
-   {{/if}}
+  {{/if}}
 
 </template>

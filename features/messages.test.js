@@ -2,12 +2,13 @@ import { signUp, signIn, signOut, login, cleanDatabase, createAccount, makeAndAc
 
 describe('Messages', function(){
 
-  beforeEach(function() {
-    cleanDatabase();
-    signUp('user', 'email@email.com', 'password');
-  });
+    context('No messages', function(){
 
-  context('No messages', function(){
+    beforeEach(function() {
+      cleanDatabase();
+      signUp('user', 'email@email.com', 'password');
+    });
+
     it('displays a message if you have no converstations', function(){
       browser.url('http://localhost:3100/messages');
       browser.pause(200);
@@ -22,29 +23,27 @@ describe('Messages', function(){
     });
   });
 
-  context('Message sent', function(){
+  context('Message sent @watch', function(){
     beforeEach(function(){
       makeAndAcceptFriendRequest();
       browser.url('http://localhost:3100/messages');
-      browser.waitForExist('#messages-friends-list', 3000);
-      browser.click('#messages-friends-list .start-chat-link');
+      browser.waitForExist('ul#messages-friends-list .start-chat-link', 3000);
+      browser.click('ul#messages-friends-list .start-chat-link');
       browser.waitForExist('#message-input');
-      var msg = 'Hello User2';
-      browser.setValue('#message-input', msg);
+      browser.setValue('#message-input', 'Hello User2');
       browser.click("#submit-message");
     });
 
-    it('shows messages a user has sent on their messages page', function(){
-      expect(browser.getText('#chat p:first-child')).to.equal('user: ' + msg);
+    it('shows the message on senders messages page', function(){
+      expect(browser.getText('#chat p:first-child')).to.equal('user: Hello User2');
     });
 
-    it('shows messages a user has been sent on their messages page @watch', function(){
+    it('shows the message a receivers messages page', function(){
       signOut();
       signIn('user2', 'password');
       browser.url('http://localhost:3100/messages');
-      browser.waitForExist('#messages-friends-list', 3000);
-      browser.click('#messages-friends-list .start-chat-link');
-      expect(browser.getText('#chat p:first-child')).to.equal('user: ' + msg);
+      browser.waitForExist('#chat p:first-child', 3000);
+      expect(browser.getText('#chat p:first-child')).to.equal('user: Hello User2');
     });
   });
 });
