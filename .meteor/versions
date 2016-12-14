@@ -23,6 +23,7 @@ caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
 chuangbo:cookie@1.1.0
+coffeescript@1.0.17
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.8
@@ -119,6 +120,7 @@ templating@1.2.15
 templating-compiler@1.2.15
 templating-runtime@1.2.15
 templating-tools@1.0.5
+tmeasday:publish-with-relations@0.2.0
 tracker@1.1.1
 ui@1.0.12
 underscore@1.0.10

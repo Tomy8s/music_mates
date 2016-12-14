@@ -1,9 +1,11 @@
 <template name="Tracks">
   <div id="container">
-    <a href="javascript:history.back()">Go Back</a>
+
 
     {{#if tracks}}
     {{> player}}
+    <br>
+      <a href='#' class="backLink">Go Back</a>
       <ul>
         {{#each tracks}}
           <li><strong class="track">{{artists}}</strong> - {{name}} </li>

@@ -1,5 +1,10 @@
 import { Template } from 'meteor/templating';
 
+Template.Messages.onRendered(function(){
+  Meteor.subscribe('messages');
+  Meteor.subscribe('conversations');
+});
+
 Template.displayMessagesFriends.helpers({
     hasFriends: function() {
       if (Meteor.user()) {

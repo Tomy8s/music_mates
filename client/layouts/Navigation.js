@@ -12,3 +12,9 @@ Template.Navigation.events({
     document.getElementById(buttonId).className = 'selected_route';
   }
 });
+
+Template.MainLayout.events({
+  'click .backLink'(){
+    history.back()
+  }
+});

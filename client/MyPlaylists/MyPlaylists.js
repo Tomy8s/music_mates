@@ -1,5 +1,7 @@
 import { SpotifyWebApi } from 'meteor/xinranxiao:spotify-web-api';
 
+Meteor.subscribe('playlists');
+
 Template.MyPlaylists.events({
   'click #import_playlists'(event){
     document.getElementById('playlist_loading_gif').style='display: unset';

@@ -1,5 +1,11 @@
 import { Template } from 'meteor/templating';
 
+Template.Discover.onRendered(function(){
+  Meteor.subscribe('users');
+  Meteor.subscribe('requests');
+  Meteor.subscribe('tracks');
+});
+
 function currentUser(){
   return Meteor.user();
 }
@@ -55,7 +61,9 @@ Template.suggestedFriends.helpers({
   },
 
   userHasTracks: function(){
-    return Meteor.user().tracks.length > 0
+    if (Meteor.user().tracks) {
+      return Meteor.user().tracks.length > 0
+    }
   }
 });
 

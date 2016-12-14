@@ -1,5 +1,5 @@
 <template name='Profile'>
- <h1 class='page_titles'>{{ userName userInfo }} Profile</h1>
+ <h1 class='page_titles'>{{ usersName }} Profile</h1>
 {{> addSpotifyId }}
 {{#if currentUser}}
  {{> profileDetails}}
@@ -8,7 +8,7 @@
 
 
 <template name='profileDetails'>
-  <h3>{{ userName userInfo }} Profile</h3>
+  <h3>{{ usersName }} Profile</h3>
 
   {{#if userImage}}
     <img src="{{userImage}}">

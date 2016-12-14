@@ -1,5 +1,7 @@
-Template.Tracks.rendered = function(){
-};
+Template.Tracks.onRendered(function(){
+  Meteor.subscribe('tracks');
+})
+
 
 Template.Tracks.helpers({
   tracks: function(){
@@ -16,7 +18,7 @@ Template.Tracks.helpers({
     var artists = artistNames.join(", ")
     return artists
   }
-})
+});
 
 Template.player.helpers({
   playerId: function(){
@@ -24,4 +26,4 @@ Template.player.helpers({
     var spotifyPlayer = Playlists.findOne({ _id: playlist});
     return spotifyPlayer;
   }
-})
+});

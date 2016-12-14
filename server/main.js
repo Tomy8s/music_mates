@@ -137,6 +137,10 @@ Meteor.methods({
 
   setSpotifyId: function(spotifyId) {
     Meteor.users.update(Meteor.userId(), {$set: {"services.spotify.id": spotifyId} });
+  },
+
+  cancelRequest: function(id) {
+    Meteor.requests.remove(id);
   }
 });
 
