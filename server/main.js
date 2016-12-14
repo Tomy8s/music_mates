@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { SpotifyWebApi } from 'meteor/xinranxiao:spotify-web-api';
 
 Meteor.publish(null, function() {
-  return Meteor.users.find({}, {fields : {tracks : 1, activeConversation: 1}});
+  return Meteor.users.find({}, {fields : {tracks : 1, activeConversation: 1, "services.spotify.id" : 1}});
 }, {is_auto:true});
 
 Meteor.startup(() => {
@@ -21,7 +21,10 @@ Meteor.startup(() => {
 
 Meteor.methods({
   getPlaylists: function() {
-    var spotifyApi = new SpotifyWebApi()
+    var spotifyApi = new SpotifyWebApi({
+     clientId : Meteor.settings.spotifyClientId,
+     clientSecret : Meteor.settings.spotifySecret
+    });
     var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
 
     if (checkTokenRefreshed(response, spotifyApi)) {
@@ -130,8 +133,11 @@ Meteor.methods({
 
   setActiveConversation: function(id) {
     Meteor.users.update(Meteor.userId(), {$set: {activeConversation: id}});
-  }
+  },
 
+  setSpotifyId: function(spotifyId) {
+    Meteor.users.update(Meteor.userId(), {$set: {"services.spotify.id": spotifyId} });
+  }
 });
 
 var checkTokenRefreshed = function(response, api) {
