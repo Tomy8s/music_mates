@@ -5,6 +5,12 @@ Meteor.publish(null, function() {
   return Meteor.users.find({}, {fields : {tracks : 1}});
 }, {is_auto:true});
 
+Meteor.publish(null, function() {
+  return Meteor.users.find({}, {fields : {"services.spotify.id" : 1}});
+}, {is_auto:true});
+
+
+
 Meteor.startup(() => {
   ServiceConfiguration.configurations.update(
     { "service": "spotify" },
@@ -20,12 +26,16 @@ Meteor.startup(() => {
 
 Meteor.methods({
   getPlaylists: function() {
-    var spotifyApi = new SpotifyWebApi()
+    var spotifyApi = new SpotifyWebApi({
+     clientId : Meteor.settings.spotifyClientId,
+     clientSecret : Meteor.settings.spotifySecret
+    });
     var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
 
     if (checkTokenRefreshed(response, spotifyApi)) {
       var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
     }
+    console.log(response);
     return response.data.body.items
   },
 
@@ -125,6 +135,24 @@ Meteor.methods({
 
   getUsersTracks: function(userId) {
     return Meteor.users.findOne(userId).tracks
+  },
+
+  setSpotifyId: function(spotifyId) {
+    // var scopes = ['user-read-private', 'user-read-email'],
+    // redirectUri = 'https://example.com/callback',
+    // clientId = Meteor.settings.spotifyClientId,
+    // state = 'some-state-of-my-choice';
+    //
+    // // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
+    // var spotifyApi = new SpotifyWebApi({
+    //   redirectUri : redirectUri,
+    //   clientId : clientId
+    // });
+    //
+    // // Create the authorization URL
+    // var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+    // console.log(authorizeURL);
+    Meteor.users.update(Meteor.userId(), {$set: {"services.spotify.id": spotifyId} });
   }
 
 });

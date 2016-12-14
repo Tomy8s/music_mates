@@ -1,5 +1,4 @@
 Template.profileDetails.helpers({
-
   userInfo: function(){
     var userId = getUserId();
     var user = Meteor.users.findOne({_id: userId})
@@ -29,7 +28,10 @@ Template.addSpotifyId.events({
  },
   'click #add-spotify-account'(event){
    event.preventDefault();
-   var spotifyId = document.getElementById("addSpotifyId").value
+   var spotifyId = document.getElementById("addSpotifyId").value;
+   Meteor.call('setSpotifyId', spotifyId)
+   FlowRouter.go("/login");
+   console.log(Meteor.user().services.spotify.id);
   }
 });
 
