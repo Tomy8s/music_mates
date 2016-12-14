@@ -1,14 +1,23 @@
 <template name='MyPlaylists'>
-  <h1>My Playlists</h1>
-  <button type="button" class="btn" id="import_playlists">Import/Update Your Spotify Playlists</button>
-  <img src='/ajax-loader.gif' id='playlist_loading_gif' style='display: none'>
+
+  <h1 class='page_titles'>My Playlists</h1>
+
+  <div id='import_button_div'>
+   <button type="button" class="btn" id="import_playlists">Import/Update Your Spotify Playlists</button>
+   <img src='/ajax-loader.gif' id='playlist_loading_gif' style='display: none'>
+  </div>
+
+  <div id='playlist_list_div'>
   {{#if playlists}}
     <ul id="playlists_list">
       {{#each playlists}}
         {{> Playlist}}
       {{/each}}
     </ul>
+   {{ else }}
+    <p id='add_account_info'>You currently have no playlists, if your spotify account is linked hig the import button or head to your prpfile to link your account.</p>
   {{/if}}
+  </div>
 </template>
 
 <template name="Playlist">

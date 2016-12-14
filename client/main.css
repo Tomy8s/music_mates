@@ -9,7 +9,24 @@ body {
   padding: 0;
   margin: 0;
   font-size: 14px;
-  background-color: #4FA4C9;
+  background-color: white
+
+
+
+;
+  /*#4FA4C9;*/
+}
+
+.page_titles{
+  text-align: center;
+  font-size: 60px;
+  margin-top: 100px;
+  color: #666666
+
+
+;
+  font-family: 'Maven Pro', sans-serif;
+
 }
 
 .main-layout {
@@ -27,13 +44,6 @@ nav{
 
 .login-link-and-dropdown-list{
   margin: 10px 0;
-}
-
-.container {
-  /*max-width: 600px;
-  margin: 0 auto;
-  min-height: 100%;*/
-  background: white;
 }
 
 .list-div {

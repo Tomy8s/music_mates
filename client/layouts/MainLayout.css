@@ -5,7 +5,7 @@ header{
   width: 100%;
   height: 70px;
   display: inline-block;
-  background-color: #4FA4C9;
+  background-color: white;
   position: relative;
   margin:auto;
     display: table;
@@ -24,23 +24,21 @@ header{
 }
 
 #sign_in_div{
-  /*top: 50%;
-  transform: translate(0,-50%);*/
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Maven Pro', sans-serif;
   padding-right: 15px;
-  padding-top: 18px;
+  padding-top: 20px;
   float: right;
-  color: #c9cacc;
+  color: #666666;
 }
 
 #sign_in_div:hover {
-   color: white;
+   color: #e53509;
 }
 
 #navigation{
  top: 25px;
  float: left;
- padding-top: 25px;
+ padding-top: 29px;
  padding-left: 10px;
 }
 
@@ -50,9 +48,7 @@ header{
   right:0;
   bottom:0;
   left:0;
-  /*width: 100%;
-  height:100%;*/
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Maven Pro', sans-serif;
   background: url("/listen.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -60,6 +56,7 @@ header{
   background-size: cover;
   text-align: center;
 }
+
 #banner h1{
   color: white;
   font-size: 300px;
@@ -68,7 +65,7 @@ header{
 }
 
 .container{
-  background-color: #4FA4C9;
+  background-color: white;
 }
 
 #container_header{
@@ -81,13 +78,13 @@ header{
 
 #home_sign_in{
   text-align: center;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Maven Pro', sans-serif;
   margin: 0 auto;
   margin-top: 5px;
   width: 50%;
   border-radius: 4px;
   font-size: 35px;
-  color: white;
+  color: #666666;
 }
 
 #home_header{
@@ -99,8 +96,8 @@ header{
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  font-family: 'Comfortaa', cursive;
-  color: #c9cacc
+  font-family: 'Maven Pro', sans-serif;
+  color: #666666
 }
 
 .navButton:hover {
@@ -112,8 +109,8 @@ header{
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  font-family: 'Comfortaa', cursive;
-  color: #c9cacc
+  font-family: 'Maven Pro', sans-serif;
+  color: #666666
 }
 
 .selected_route:hover{
