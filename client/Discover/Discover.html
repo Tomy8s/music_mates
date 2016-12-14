@@ -12,12 +12,12 @@
     <ul>
     {{#each compatibleUsers}}
       {{#unless isFriend this }}
-        <li>
+        <li class="compatible_users_link">
         <a href="/profile/{{_id}}" type="button" name="{{_id}}" id="profile-link">{{ userName this }} </a>
         <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow</a></li>
         {{#if userHasTracks}}
           <span>{{ compatibility this }}% compatible</span>
-          <span>(<a href="/commonTracks/{{_id}}">common tracks</a>: {{commonTracksCount this}})</span>
+          <span>(<a class="common_tracks_link" href="/commonTracks/{{_id}}">common tracks</a>: {{commonTracksCount this}})</span>
         {{/if}}
       {{/unless}}
     {{/each}}

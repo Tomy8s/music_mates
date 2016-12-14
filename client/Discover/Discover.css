@@ -1,0 +1,32 @@
+#profile-link{
+  font-size: 16px;
+  color: black;
+}
+
+#profile-link:hover {
+  color: #4FA4C9;
+}
+
+#friend-request-btn{
+  color: #666666;
+}
+
+#friend-request-btn:hover {
+   color: #e53509;
+}
+
+#suggested-friends {
+  height: 100%;
+}
+
+.common_tracks_link{
+   color: #e53509;
+}
+
+.common_tracks_link:hover{
+   color: #666666;
+}
+
+.compatible_users_link{
+  margin-top: 10px;
+}

@@ -3,7 +3,7 @@
   <h1 class='page_titles'>My Playlists</h1>
 
   <div id='import_button_div'>
-   <button type="button" class="btn" id="import_playlists">Import/Update Your Spotify Playlists</button>
+   <a href="" id="import_playlists">Import/Update Your Spotify Playlists</a>
    <img src='/ajax-loader.gif' id='playlist_loading_gif' style='display: none'>
   </div>
 
@@ -21,5 +21,5 @@
 </template>
 
 <template name="Playlist">
-    <li><a href="/playlist/{{_id}}" class="playlist"><strong >{{name}}</strong></a> - {{trackCount}} tracks</li>
+    <li><a href="/playlist/{{_id}}" class="playlist_link"><strong >{{name}}</strong></a> - {{trackCount}} tracks</li>
 </template>
