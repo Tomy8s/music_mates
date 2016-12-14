@@ -54,7 +54,7 @@ Template.suggestedFriends.helpers({
     return isFriend(user) || isRequestedFriend(user) ? true : false;
   },
 
-  userHasAnyTracks: function(){
+  userHasTracks: function(){
     return Meteor.user().tracks.length > 0
   }
 });
