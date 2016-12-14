@@ -19,7 +19,7 @@ Template.displayFriends.helpers({
 });
 
 Template.Friends.events({
-  'click #friend-request-btn'(event) {
+  'click .friend-request-btn'(event) {
     event.preventDefault();
     var user = Meteor.users.findOne(this._id);
     var request = user.requestFriendship();

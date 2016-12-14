@@ -1,5 +1,4 @@
 Template.profileDetails.helpers({
-
   userInfo: function(){
     var userId = getUserId();
     var user = Meteor.users.findOne({_id: userId})
@@ -20,7 +19,19 @@ Template.profileDetails.helpers({
       return image
     }
   }
+});
 
+Template.addSpotifyId.events({
+  'click #add-spotify-link'(event){
+   event.preventDefault();
+   document.getElementById('spotify-id').style='display: unset';
+ },
+  'click #add-spotify-account'(event){
+   event.preventDefault();
+   var spotifyId = document.getElementById("addSpotifyId").value;
+   Meteor.call('setSpotifyId', spotifyId.toLowerCase())
+   FlowRouter.go("/login");
+  }
 });
 
 function getUserId(){
