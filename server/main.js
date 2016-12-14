@@ -138,20 +138,6 @@ Meteor.methods({
   },
 
   setSpotifyId: function(spotifyId) {
-    // var scopes = ['user-read-private', 'user-read-email'],
-    // redirectUri = 'https://example.com/callback',
-    // clientId = Meteor.settings.spotifyClientId,
-    // state = 'some-state-of-my-choice';
-    //
-    // // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
-    // var spotifyApi = new SpotifyWebApi({
-    //   redirectUri : redirectUri,
-    //   clientId : clientId
-    // });
-    //
-    // // Create the authorization URL
-    // var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
-    // console.log(authorizeURL);
     Meteor.users.update(Meteor.userId(), {$set: {"services.spotify.id": spotifyId} });
   }
 

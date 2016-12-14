@@ -31,7 +31,6 @@ Template.addSpotifyId.events({
    var spotifyId = document.getElementById("addSpotifyId").value;
    Meteor.call('setSpotifyId', spotifyId)
    FlowRouter.go("/login");
-   console.log(Meteor.user().services.spotify.id);
   }
 });
 
