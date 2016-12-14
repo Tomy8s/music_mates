@@ -9,6 +9,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 14px;
+  background-color: #4FA4C9;
 }
 
 .main-layout {
@@ -29,20 +30,14 @@ nav{
 }
 
 .container {
-  max-width: 600px;
+  /*max-width: 600px;
   margin: 0 auto;
-  min-height: 100%;
+  min-height: 100%;*/
   background: white;
 }
 
 .list-div {
   padding: 10px;
-}
-
-header {
-  background-color: #d0edf5;
-  padding: 20px 15px 15px 15px;
-  position: relative;
 }
 
 h1,h2,h3 {
@@ -63,9 +58,6 @@ li {
   background-color: #ffcc00;
 }
 
-.selected_route {
-  background-color: #ffcc00;
-}
 
 #suggested-friends {
   min-height: 100%;

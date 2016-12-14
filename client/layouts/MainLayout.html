@@ -1,11 +1,20 @@
 <template name="MainLayout">
+  
   <div class="container">
 
-    <header>
-      <div id="navigation">
-        {{> Navigation}}
+    <header id='container_header'>
+      <div id="logo_div">
+        <a href="/"><img id="logo" src="/logo_horizontal.png" /></a>
       </div>
-        {{> loginButtons }}
+
+        <div id="navigation">
+          {{> Navigation}}
+        </div>
+
+        <div id="sign_in_div">
+          {{> LoginButtons }}
+        </div>
+
     </header>
 
     <main class="main-layout">
