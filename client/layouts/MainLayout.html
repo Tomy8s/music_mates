@@ -2,10 +2,17 @@
   <div class="container">
 
     <header>
-      <div id="navigation">
-        {{> Navigation}}
+      <div id="logo_div">
+        <a href="/"><img id="logo" src="/logo_horizontal.png" /></a>
       </div>
-        {{> LoginButtons }}
+      <div id="navigation_div">
+        <div id="sign_in_div">
+          {{> LoginButtons }}
+        </div>
+        <div id="navigation">
+          {{> Navigation}}
+        </div>
+      </div>
     </header>
 
     <main class="main-layout">
