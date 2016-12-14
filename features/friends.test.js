@@ -3,7 +3,7 @@ import { signUp, signIn, signOut, createAccount, cleanDatabase } from './testHel
 describe('friends', function() {
 
   context('no friends', function(){
-    it('displays "You have no friends", when no friends @watch', function() {
+    it('displays "You have no friends", when no friends', function() {
         // console.log('meteor running on:', server._original.host + ':' + server._original.port);
         server.call('logout');
         cleanDatabase();

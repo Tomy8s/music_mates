@@ -1,6 +1,6 @@
 <template name="Tracks">
   <div id="container">
-    <a href="/myPlaylists" id="back-to-playlist-link">Back to playlists</a>
+    <a href="javascript:history.back()">Go Back</a>
 
     {{#if tracks}}
     {{> player}}
