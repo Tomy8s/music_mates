@@ -1,22 +1,42 @@
-Template.Profile.rendered = function(){
-};
-
-
 Template.profileDetails.helpers({
+
   userInfo: function(){
-    var userId = FlowRouter._current.params.id
+    var userId = getUserId();
     var user = Meteor.users.findOne({_id: userId})
     return user
   },
+
   userPlaylists: function(){
-    var userId = FlowRouter._current.params.id
+    var userId = getUserId();
     var playlists = Playlists.find({userId: userId}).fetch();
     return playlists
   },
+
   userImage: function(){
-    var userId = FlowRouter._current.params.id
-    var user = Meteor.users.findOne({_id: userId})
-    var image = user.profile.images[0].url
-    return image
+    var userId = getUserId();
+    var user = Meteor.users.findOne(userId);
+    if (user.profile.images.length > 0) {
+      var image = user.profile.images[0].url
+      return image
+    }
   }
 });
+
+Template.addSpotifyId.events({
+  'click #add-spotify-link'(event){
+   event.preventDefault();
+   document.getElementById('spotify-id').style='display: unset';
+ },
+  'click #add-spotify-account'(event){
+   event.preventDefault();
+   var spotifyId = document.getElementById("addSpotifyId").value
+  }
+});
+
+function getUserId(){
+  if (FlowRouter._current.params.id) {
+    return FlowRouter._current.params.id
+  } else {
+    return Meteor.userId();
+  }
+}
