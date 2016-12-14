@@ -35,7 +35,6 @@ Meteor.methods({
     if (checkTokenRefreshed(response, spotifyApi)) {
       var response = spotifyApi.getUserPlaylists(Meteor.user().services.spotify.id, {limit: 50})
     }
-    console.log(response);
     return response.data.body.items
   },
 

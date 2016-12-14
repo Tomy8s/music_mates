@@ -29,7 +29,7 @@ Template.addSpotifyId.events({
   'click #add-spotify-account'(event){
    event.preventDefault();
    var spotifyId = document.getElementById("addSpotifyId").value;
-   Meteor.call('setSpotifyId', spotifyId)
+   Meteor.call('setSpotifyId', spotifyId.toLowerCase())
    FlowRouter.go("/login");
   }
 });
