@@ -31,7 +31,20 @@ header{
   color: #666666;
 }
 
-#sign_in_div:hover {
+#sign_in_div:hover{
+  color: #e53509;
+}
+
+#sign_in_div a.login-close-text{
+  color: #666666;
+  float: right;
+}
+
+#sign_in_div #login-dropdown-list{
+ margin-left: -150px;
+}
+
+#sign_in_div a.login-close-text:hover {
    color: #e53509;
 }
 
@@ -97,6 +110,7 @@ header{
   display: inline-block;
   margin-right: 20px;
   font-family: 'Maven Pro', sans-serif;
+  font-weight: 900;
   color: #666666
 }
 
@@ -110,7 +124,8 @@ header{
   display: inline-block;
   margin-right: 20px;
   font-family: 'Maven Pro', sans-serif;
-  color: #666666
+  font-weight: 900;
+  color: #e53509;
 }
 
 .selected_route:hover{
