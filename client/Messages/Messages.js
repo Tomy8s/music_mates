@@ -14,8 +14,7 @@ Template.displayMessagesFriends.events({
     var newConversation = new Conversation().save();
     newConversation.addParticipant(conversationFriend);
     // newConversation.sendMessage("Hello World!");
-    Session.set('conversation', newConversation)
-    console.log(Session.get('conversation', this))
+    Session.set('conversationId', newConversation._id);
   }
 });
 
@@ -27,15 +26,16 @@ Template.currentConversations.helpers({
       return Meteor.messages.find({
         conversationId:conversationId});
     },
-    conversation: function(){
-      return Session.get('conversation', this)
+    conversationId: function(){
+      return Session.get('conversationId', this._id);
     }
 });
 
  Template.currentConversations.events({
    'click #submit-message': function(event) {
-    var conversation = Session.get('conversation', this)
+    var conversationId = $('#submit-message').val();
 		var body = $("#message-input").val();
+    var conversation = Meteor.conversations.findOne(conversationId); 
     console.log(body)
 		conversation.sendMessage(body);
 	}

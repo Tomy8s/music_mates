@@ -35,11 +35,11 @@
 
    {{#if chatActive }}
     <input id="message-input" type="text">
-    <button value="{{conversation._id}}" id="submit-message">Send</button>
+    <button value="{{conversationId}}" id="submit-message">Send</button>
    {{/if}}
 
    <div class="messageBox">
-     {{#each displayMessages conversation._id }}
+     {{#each displayMessages conversationId }}
      <strong style="height:250px">{{user.username}}:</strong>
        {{body}}
        <br>
