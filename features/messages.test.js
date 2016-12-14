@@ -23,7 +23,7 @@ describe('Messages', function(){
     });
   });
 
-  context('Message sent @watch', function(){
+  context('Message sent', function(){
     beforeEach(function(){
       makeAndAcceptFriendRequest();
       browser.url('http://localhost:3100/messages');
@@ -38,10 +38,13 @@ describe('Messages', function(){
       expect(browser.getText('#chat p:first-child')).to.equal('user: Hello User2');
     });
 
-    it('shows the message a receivers messages page', function(){
+    it('shows the message a receivers messages page @watch', function(){
       signOut();
       signIn('user2', 'password');
+      browser.pause(500);
       browser.url('http://localhost:3100/messages');
+      browser.waitForExist('ul#messages-friends-list .start-chat-link', 3000);
+      browser.click('ul#messages-friends-list .start-chat-link');
       browser.waitForExist('#chat p:first-child', 3000);
       expect(browser.getText('#chat p:first-child')).to.equal('user: Hello User2');
     });

@@ -33,7 +33,7 @@ function commonTracks(user) {
 Template.suggestedFriends.helpers({
   compatibleUsers: function(){
     var allExceptMe = Meteor.users.find( { _id: {$ne: Meteor.userId()} } ).fetch();
-    if (!Meteor.user().services.spotify) {
+    if (!Meteor.user().tracks) {
       return allExceptMe;
     } else {
       var compatibleMates = _.sortBy(allExceptMe, function(user) { return getCompatibility(user) * -1 });

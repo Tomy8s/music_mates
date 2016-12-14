@@ -1,0 +1,20 @@
+#chat-container {
+  border: 1px solid #ddd;
+  float: right;
+  width: 400px;
+}
+
+#friends-messages-container {
+  border: 1px solid #ddd;
+  float: left;
+  width: 145px;
+}
+
+#chat {
+  height: 400px;
+  overflow:scroll;
+}
+
+#message-input {
+  width: 325px;
+}

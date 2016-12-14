@@ -2,10 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { SpotifyWebApi } from 'meteor/xinranxiao:spotify-web-api';
 
 Meteor.publish(null, function() {
-  return Meteor.users.find({}, {fields : {tracks : 1}});
+  return Meteor.users.find({}, {fields : {tracks : 1, activeConversation: 1}});
 }, {is_auto:true});
 
 Meteor.startup(() => {
+
   ServiceConfiguration.configurations.update(
     { "service": "spotify" },
     {
@@ -125,6 +126,10 @@ Meteor.methods({
 
   getUsersTracks: function(userId) {
     return Meteor.users.findOne(userId).tracks
+  },
+
+  setActiveConversation: function(id) {
+    Meteor.users.update(Meteor.userId(), {$set: {activeConversation: id}});
   }
 
 });

@@ -1,45 +1,55 @@
 import { Template } from 'meteor/templating';
 
-var conversation = Meteor.conversations.findOne(Meteor.user());
-
 Template.displayMessagesFriends.helpers({
     hasFriends: function() {
+      if (Meteor.user()) {
         return Meteor.user().friends().count() === 0 ? false : true;
+      }
     }
 });
 
 Template.displayMessagesFriends.events({
   'click .start-chat-link'(event){
     var conversationFriend = Meteor.users.findOne(this.friendId);
-    var newConversation = new Conversation().save();
-    newConversation.addParticipant(conversationFriend);
-    // newConversation.sendMessage("Hello World!");
-    Session.set('conversationId', newConversation._id);
+    var query = { _participants: {$all: [Meteor.userId(), this.friendId]} };
+    var conversation = Meteor.conversations.findOne(query);
+    if (!conversation) {
+      conversation = new Conversation().save();
+      conversation.addParticipant(conversationFriend);
+    }
+    Meteor.call('setActiveConversation', conversation._id);
+    // Session.set('conversationId', conversation._id);
+    $("#chat").scrollTop(400);
   }
 });
 
 Template.currentConversations.helpers({
-   chatActive: function() {
+  chatActive: function() {
     return true;
-   },
-   displayMessages: function(conversationId){
-     console.log(Meteor.messages.find({
-        conversationId:conversationId
-      }).fetch());
-      return Meteor.messages.find({
-        conversationId:conversationId
-      });
-    },
-    conversationId: function(){
-      return Session.get('conversationId', this._id);
+  },
+  displayMessages: function(conversationId){
+    return Meteor.messages.find({conversationId:conversationId});
+  },
+  conversationId: function(){
+    var id = this.activeConversation;
+    if (id) {
+      return id
     }
+  },
+  scrollToTop: function(){
+    $("#chat").scrollTop(400);
+  }
 });
 
  Template.currentConversations.events({
-   'click #submit-message': function(event) {
+   'submit #chat-form': function(event) {
+    event.preventDefault();
     var conversationId = $('#submit-message').val();
-		var body = $("#message-input").val();
+    var input = $("#message-input");
+		var body = input.val();
     var conversation = Meteor.conversations.findOne(conversationId);
 		conversation.sendMessage(body);
+    $("#chat").scrollTop(400);
+    input.val('');
 	}
 });
