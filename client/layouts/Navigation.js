@@ -4,11 +4,11 @@ Template.Navigation.rendered = function() {
 }
 
 Template.Navigation.events({
-  'click nav button'(event){
+  'click nav a'(event){
     var buttonId = event.target.id;
     FlowRouter.go(buttonId);
     var currentlySelectedButton = document.getElementsByClassName('selected_route')[0];
-    currentlySelectedButton.className = '';
+    currentlySelectedButton.className = 'navButton';
     document.getElementById(buttonId).className = 'selected_route';
   }
 });

@@ -1,6 +1,28 @@
 #playlists_list {
   margin-top: 30px;
 }
-#import_playlists {
-  margin-top: 10px;
+
+/*#import_button_div{
+  text-align: center;
+  padding: 10px;
+  width: 300px;
+  background-color: #4FA4C9;
+  color"
+}*/
+
+.playlist_link{
+  font-size: 16px;
+  color: black;
+}
+
+.playlist_link:hover {
+  color: #4FA4C9;
+}
+
+#import_playlists{
+  color: #666666;
+}
+
+#import_playlists:hover {
+   color: #e53509;
 }

@@ -1,4 +1,8 @@
 /* CSS declarations go here */
+html, body {
+    height:100%;
+}
+
 body {
   font-family: sans-serif;
   position: absolute;
@@ -9,16 +13,19 @@ body {
   padding: 0;
   margin: 0;
   font-size: 14px;
+  background-color: white;
+  font-family: 'Maven Pro', sans-serif;
+  background-color: beige;
 }
 
-.main-layout {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
+.page_titles{
+  text-align: center;
+  font-size: 60px;
+  margin-top: 70px;
+  color: #666666;
+  font-family: 'Maven Pro', sans-serif;
 }
+
 
 nav{
   float: right;
@@ -28,21 +35,8 @@ nav{
   margin: 10px 0;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  min-height: 100%;
-  background: white;
-}
-
 .list-div {
   padding: 10px;
-}
-
-header {
-  background-color: #d0edf5;
-  padding: 20px 15px 15px 15px;
-  position: relative;
 }
 
 h1,h2,h3 {
@@ -55,19 +49,13 @@ ul {
 }
 li {
   list-style: none;
-  border-bottom: #eee solid 1px;
+}
+
+a{
+  text-decoration: none;
 }
 
 .btn {
   padding: 3px 5px;
   background-color: #ffcc00;
-}
-
-.selected_route {
-  background-color: #ffcc00;
-}
-
-#suggested-friends {
-  min-height: 100%;
-  padding : 10px 10px;
 }
