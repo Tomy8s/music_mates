@@ -3,10 +3,6 @@
 
   {{> displayMessagesFriends}}
 
-  <ul id="messages-list">
-    <p>You currently have no conversations.</p>
-  </ul>
-
   {{> currentConversations }}
 
 
@@ -27,22 +23,26 @@
 </template>
 
 <template name="currentConversations">
-  <dialog id="chat">
-    {{#each messages}}
-  	  {{message.user.username}}: {{message.body}}
+  <!--<div id="chat">
+    {{#each displayMessages conversationId }}
+      <p class="message">
+        <strong style="height:250px">{{user.username}}: </strong>{{body}}
+      </p>
     {{/each}}
-  </dialog>
+  </div>-->
+
+       <div id="chat">
+     {{#each displayMessages conversationId }}
+     <p class="message">
+        <strong style="height:250px">{{user.username}}:</strong>
+       {{body}}
+       </p>
+    {{/each}}
+   </div>
 
    {{#if chatActive }}
     <input id="message-input" type="text">
     <button value="{{conversationId}}" id="submit-message">Send</button>
    {{/if}}
 
-   <div class="messageBox">
-     {{#each displayMessages conversationId }}
-     <strong style="height:250px">{{user.username}}:</strong>
-       {{body}}
-       <br>
-    {{/each}}
-   </div>
 </template>

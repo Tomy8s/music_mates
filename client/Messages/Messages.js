@@ -23,8 +23,12 @@ Template.currentConversations.helpers({
     return true;
    },
    displayMessages: function(conversationId){
+     console.log(Meteor.messages.find({
+        conversationId:conversationId
+      }).fetch());
       return Meteor.messages.find({
-        conversationId:conversationId});
+        conversationId:conversationId
+      });
     },
     conversationId: function(){
       return Session.get('conversationId', this._id);
@@ -35,8 +39,7 @@ Template.currentConversations.helpers({
    'click #submit-message': function(event) {
     var conversationId = $('#submit-message').val();
 		var body = $("#message-input").val();
-    var conversation = Meteor.conversations.findOne(conversationId); 
-    console.log(body)
+    var conversation = Meteor.conversations.findOne(conversationId);
 		conversation.sendMessage(body);
 	}
 });
