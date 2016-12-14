@@ -3,6 +3,8 @@
 {{#if currentUser}}
     {{> suggestedFriends }}
 {{/if}}
+
+  {{> discoverPlaylists }}
 </template>
 
 
@@ -23,4 +25,14 @@
     {{/each}}
     </ul>
   </div>
+</template>
+
+<template name='discoverPlaylists'>
+  <h2 id='playlist_trending_text'>Playlists trending in the UK right now</h2>
+  <ul class="images">
+    {{#each getTrendingPlaylists }}
+     <li><a href="/playlist/{{ id }}/{{ownerId}}" class="playlist_link"><img id='playlist_artwork' src='{{ url }}'></a> </li>
+    {{/each}}
+  </ul>
+
 </template>

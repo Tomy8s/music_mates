@@ -67,3 +67,35 @@ Template.Discover.events({
     var request = user.requestFriendship();
   },
 })
+
+if (Meteor.isClient) {
+  Template.discoverPlaylists.onCreated(function() {
+    var self = this;
+    self.resources = new ReactiveVar(null);
+    Meteor.call("getLatestPlaylists", function(error, r) {
+      if (!error) {
+        self.resources.set(r);
+      } else {
+         console.log(error);
+      }
+    });
+  });
+
+  Template.discoverPlaylists.helpers({
+    getTrendingPlaylists: function () {
+      var self = Template.instance();
+      var thing = self.resources.get()
+      var returnArray = []
+      thing.forEach(function(element){
+        returnArray.push({name: element.name, url: element.images[0].url, ownerId: element.owner.id, id: element.id});
+      });
+      console.log(returnArray)
+      return returnArray
+    }
+  });
+}
+Template.discoverPlaylists.events({
+  'click .playlist'(event){
+    FlowRouter.go(`/playlist/${this.id}`);
+  }
+});

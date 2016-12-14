@@ -137,6 +137,15 @@ Meteor.methods({
 
   setSpotifyId: function(spotifyId) {
     Meteor.users.update(Meteor.userId(), {$set: {"services.spotify.id": spotifyId} });
+  },
+
+  getLatestPlaylists: function(){
+    var spotifyApi = new SpotifyWebApi()
+    var response = spotifyApi.getFeaturedPlaylists({country: 'GB', limit: 10});
+    if (checkTokenRefreshed(response, spotifyApi)) {
+      var response = spotifyApi.getFeaturedPlaylists({country: 'GB', limit: 10});
+    }
+    return response.data.body.playlists.items
   }
 });
 
