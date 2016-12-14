@@ -1,7 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { SpotifyWebApi } from 'meteor/xinranxiao:spotify-web-api';
 
-// Playlists = new Mongo.Collection('playlists');
+Meteor.publish(null, function() {
+  return Meteor.users.find({}, {fields : {tracks : 1}});
+}, {is_auto:true});
 
 Meteor.startup(() => {
   ServiceConfiguration.configurations.update(
@@ -69,16 +71,21 @@ Meteor.methods({
         artistObjects.push({name: artist.name, spotifyId: artist.id})
       });
 
+      // if track already exists in the database
       if(Tracks.findOne({userId: Meteor.userId(), playlistId: playlistId, spotifyId: track.id})){
         return;
       } else {
-        Tracks.insert({
+        var trackId = Tracks.insert({
           userId: Meteor.userId(),
           name: track.name,
           artists: artistObjects,
           spotifyId: track.id,
           playlistId: playlistId,
         });
+
+        // add track to user.tracks array
+        Meteor.users.update(Meteor.userId(), {$push: {tracks: track.id} });
+        // console.log(Meteor.user());
       }
     });
 
@@ -110,7 +117,14 @@ Meteor.methods({
 
     deletedTracksIds.forEach(function(id){
       Tracks.remove({playlistId: playlistId, spotifyId: id});
+
+      // remove track trom user.tracks array
+      Meteor.users.update(Meteor.userId(), {$pull: {tracks: id} });
     })
+  },
+
+  getUsersTracks: function(userId) {
+    return Meteor.users.findOne(userId).tracks
   }
 
 });

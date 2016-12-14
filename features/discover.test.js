@@ -3,8 +3,9 @@ import { signUp, signIn, signOut, cleanDatabase } from './testHelpers.test'
 describe('Discover', function(){
 
  describe('suggested friends', function(){
-  it('shows list of suggested friends', function(){
-      cleanDatabase()
+  it('shows list of suggested friends @watch', function(){
+      server.call('logout');
+      cleanDatabase();
       signUp('discoverTester1', 'discover1@test.com', 'testpassword');
       signOut();
       signUp('discoverTester2', 'discover2@test.com', 'testpassword');
