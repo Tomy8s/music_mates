@@ -4,14 +4,13 @@
 }
 
 #spotify_player{
- padding-top: 15px;
- margin-left: 20px;
+  display: block;
+  margin: 0 auto;
 }
 
 .backLink{
  /*margin-bottom: 100px;*/
  margin-top: 10px;
- margin-right: 10px;
  float: left;
  color: #666666
 }
@@ -25,7 +24,7 @@
 }
 
 #track_div{
-  margin-left: 65px;
+  text-align: center;
   overflow-y: auto;
   height: 47%;
 }

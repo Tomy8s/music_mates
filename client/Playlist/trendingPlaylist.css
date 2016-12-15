@@ -1,6 +1,6 @@
 #trendy_spotify_player{
-  padding-top: 70px;
-  padding-left: 50px
+  display: block;
+  margin: 0 auto;
 }
 
 #trending_back_button{
