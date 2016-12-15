@@ -34,10 +34,10 @@ We created this as a form of social media for music lovers looking to find new f
 Meteor/Javascript, tested using Mocha and Chimp
 
 ##Built by
-[Irene Oppo](https://github.com/souljuse)
-[James Steel](https://github.com/James-SteelX)
-[Tadas Majeris](https://github.com/tadasmajeris)
-[Tom Yates](https://github.com/Tomy8s/)
++ [Irene Oppo](https://github.com/souljuse)
++ [James Steel](https://github.com/James-SteelX)
++ [Tadas Majeris](https://github.com/tadasmajeris)
++ [Tom Yates](https://github.com/Tomy8s/)
 
 ##Future Additions
 + Add in the Apple Music API
