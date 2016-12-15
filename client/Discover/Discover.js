@@ -49,15 +49,6 @@ Template.suggestedFriends.helpers({
     }
   },
 
-  compatibility: function(user){
-    var percentage = getCompatibility(user)
-    return percentage
-  },
-
-  commonTracksCount: function(user){
-    return commonTracks(user).length
- },
-
   isFriend: function(user){
     return isFriend(user) || isRequestedFriend(user) ? true : false;
   },
@@ -69,6 +60,16 @@ Template.suggestedFriends.helpers({
   }
 });
 
+Template.showCompatibility.helpers({
+  compatibility: function(user){
+    var percentage = getCompatibility(user)
+    return percentage
+  },
+
+  commonTracksCount: function(user){
+    return commonTracks(user).length
+ },
+});
 
 Template.Discover.events({
   'click #friend-request-btn'(event) {
