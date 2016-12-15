@@ -8,7 +8,7 @@ Template.Messages.onRendered(function(){
 });
 
 Template.currentConversations.rendered = function(){
-  $("#chat").scrollTop(400);
+  $("#chat").animate({ scrollTop: $('#chat').prop("scrollHeight")}, 100);
 };
 
 Template.displayMessagesFriends.helpers({
@@ -16,6 +16,12 @@ Template.displayMessagesFriends.helpers({
       if (Meteor.user()) {
         return Meteor.user().friends().count() === 0 ? false : true;
       }
+    },
+
+    isActive: function(){
+      var activeConversation = Meteor.conversations.findOne(Meteor.user().activeConversation);
+      var isActive = activeConversation._participants.includes(this.friendId);
+      return isActive ? 'active-conversationalist' : ''
     }
 });
 
@@ -29,7 +35,7 @@ Template.displayMessagesFriends.events({
       conversation.addParticipant(conversationFriend);
     }
     Meteor.call('setActiveConversation', conversation._id);
-    $("#chat").scrollTop(400);
+    $("#message-input").focus();
   }
 });
 
@@ -43,11 +49,12 @@ Template.currentConversations.helpers({
   conversationId: function(){
     var id = this.activeConversation;
     if (id) {
-      return id
+      return id;
     }
   },
-  scrollToTop: function(){
-    $("#chat").scrollTop(400);
+  scrollTop: function(){
+    var h = $("#chat").prop("scrollHeight");
+    $("#chat").scrollTop(h);
   }
 });
 
@@ -59,7 +66,7 @@ Template.currentConversations.events({
 		var body = input.val();
     var conversation = Meteor.conversations.findOne(conversationId);
 		conversation.sendMessage(body);
-    $("#chat").scrollTop(400);
+    $("#chat").scrollTop($("#chat").prop("scrollHeight"));
     input.val('');
 	},
 
