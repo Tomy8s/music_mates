@@ -1,11 +1,12 @@
 #messages-and-friends {
+  display: block;
   margin: auto;
   min-width: 680px;
 }
 
 #friends-messages-container {
   padding-left: 5px;
-  margin-top: 10px;
+  margin: 10px auto;
   border: 5px solid beige;
   width: 20%;
   min-width: 200px;
@@ -21,19 +22,45 @@
   margin-left: 5px;
   margin-top: 10px;
   min-width: 300px;
-  width: 60%;
+  width: 70%;
   display: inline-block;
+}
+
+#chat {
+  outline: none;
+  height: 379px;  
+  overflow:auto;
+}
+
+/*#chat-form {
+.active-conversationalist {
+  color: #e53509;
+  background-color: beige;
 }
 
 #chat-form {
   margin-top: 7px;
+}*/
+
+#input-field{
+  padding-right: 50px;
+}
+
+#message-input {
+  outline: none;
+  width: 100%;
+  margin-left: -9px;
+  border: 4px solid beige;
 }
 
 #submit-message{
   position: relative;
   outline: none;
+  float: right;
   background-color: white;
   border-radius: 5px;
+  margin-top: -25px;
+  margin-left: -2px;
   color: #666666
 }
 
@@ -50,21 +77,9 @@
 .start-chat-link {
   padding-left: 10px;
   padding-right: 10px;
+  cursor: pointer;
 }
 
 .start-chat-link:hover{
   color: #e53509;
-}
-
-#chat {
-  outline: none;
-  height: 400px;
-  overflow:scroll;
-}
-
-#message-input {
-  outline: none;
-  width: 80%;
-  margin-left: -10px;
-  border: 4px solid beige;
 }
