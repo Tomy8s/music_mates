@@ -39,7 +39,9 @@
 
     {{#if chatActive }}
       <form id='chat-form' action="#">
-        <input id="message-input" width="300" type="text">
+        <div id="input-field">
+          <input id="message-input" width="300" type="text" autocomplete="off">
+        </div>
         <button value="{{conversationId}}" id="submit-message">Send</button>
       </form>
     {{/if}}
