@@ -30,12 +30,12 @@
 <template name="currentConversations">
 
   <div id="chat-container">
-    <div id="chat">
+    <div id="chat" data-num="{{messageCount conversationId}}">
       {{#each displayMessages conversationId }}
         <p class="message">
           <strong id='user_name_message'>{{user.username}}: </strong>{{body}}
         </p>
-        {{scrollTop}}
+        {{scrollTop @index}}
       {{/each}}
     </div>
 

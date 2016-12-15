@@ -8,7 +8,7 @@ Template.Messages.onRendered(function(){
 });
 
 Template.currentConversations.rendered = function(){
-  $("#chat").animate({ scrollTop: $('#chat').prop("scrollHeight")}, 100);
+  $("#chat").animate({ scrollTop: $('#chat').prop("scrollHeight")}, 80);
 };
 
 Template.displayMessagesFriends.helpers({
@@ -46,15 +46,22 @@ Template.currentConversations.helpers({
   displayMessages: function(conversationId){
     return Meteor.messages.find({conversationId:conversationId});
   },
+  messageCount: function(conversationId){
+    return Meteor.messages.find({conversationId:conversationId}).count();
+  },
   conversationId: function(){
     var id = this.activeConversation;
     if (id) {
       return id;
     }
   },
-  scrollTop: function(){
-    var h = $("#chat").prop("scrollHeight");
-    $("#chat").scrollTop(h);
+  scrollTop: function(index){
+    var messageCount = $('#chat').attr('data-num');
+
+    //on last message, scroll top
+    if ((messageCount - 1) === index) {
+      $("#chat").animate({ scrollTop: $('#chat').prop("scrollHeight")}, 80);
+    }
   }
 });
 
