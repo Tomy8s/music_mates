@@ -53,8 +53,7 @@
 }
 
 .start-chat-link {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
@@ -73,4 +72,9 @@
   width: 80%;
   margin-left: -10px;
   border: 4px solid beige;
+}
+
+.music_note{
+  height:15px;
+  width: auto;
 }
