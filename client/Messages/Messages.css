@@ -28,7 +28,7 @@
 
 #chat {
   outline: none;
-  height: 379px;  
+  height: 379px;
   overflow:auto;
 }
 
@@ -75,11 +75,28 @@
 }
 
 .start-chat-link {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
 .start-chat-link:hover{
   color: #e53509;
+}
+/*
+#chat {
+  outline: none;
+  height: 400px;
+  overflow:scroll;
+}
+
+#message-input {
+  outline: none;
+  width: 80%;
+  margin-left: -10px;
+  border: 4px solid beige;
+}*/
+
+.music_note{
+  height:15px;
+  width: auto;
 }

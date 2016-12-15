@@ -49,10 +49,24 @@ header{
 }
 
 #navigation{
- top: 25px;
+ top: 40px;
  float: left;
  padding-top: 29px;
  padding-left: 10px;
+}
+
+#notificationsCounter{
+ float: right;
+ padding-top: 20px;
+ padding-right: 30px;
+ font-size: 30px;
+ font-style: bold;
+ color: #666;
+}
+
+#notificationsCounter:hover{
+  color: #e53509;
+  cursor: pointer;  
 }
 
 #banner{

@@ -18,6 +18,9 @@
         {{#each currentUser.friends}}
           <li class="start-chat-link {{isActive}}">
             <a class="{{isActive}}">{{userName this.user}}</a>
+            {{#if hasNotifications this.friendId}}
+              <span><img class="music_note" src="music_note.png" /></span>
+            {{/if}}
           </li>
         {{/each}}
       {{else}}
@@ -28,7 +31,6 @@
 </template>
 
 <template name="currentConversations">
-
   <div id="chat-container">
     <div id="chat" data-num="{{messageCount conversationId}}">
       {{#each displayMessages conversationId }}
