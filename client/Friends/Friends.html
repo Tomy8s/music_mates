@@ -1,9 +1,8 @@
-
 <template name='Friends'>
-
+  <h1 class='page_titles'>Friends</h1>
   {{#if currentUser}}
   <div class="friends">
-    
+
     <div id="friends">
 
       <div class="list-div">
@@ -19,26 +18,6 @@
 
 </template>
 
-<template name="friendRequests">
-  <h3>Friend requests</h3>
-  <ul id="requests-received-list">
-    {{#if hasRequests}}
-      <p>
-        You have {{currentUser.numRequests}} pending requests
-      </p>
-      {{#each currentUser.requests}}
-      <li class="request">
-        <p>{{userName this.requester}} would like to be friends</p>
-          <a href="#" data-action="accept">Accept</a>
-          <a href="#" data-action="cancel">No thanks</a>
-      </li>
-      {{/each}}
-      {{else}}
-        <p>You have responded to all your friends' requests.</p>
-      {{/if}}
-    </ul>
-</template>
-
 <template name= "displayFriends">
   <h2>All your Friends</h2>
   <ul id="friends-list">
@@ -52,7 +31,7 @@
     {{/if}}
   </ul>
 
-  <h3>Friends who haven't confirmed</h3>
+  <h3 id="friends_not_confirmed">Friends who haven't confirmed</h3>
   <ul id="requests-made-list">
     {{#if hasPendingRequests}}
       {{#each currentUser.pendingRequests}}
@@ -64,16 +43,22 @@
   </ul>
 </template>
 
-<!-- <template name= "suggestedFriends">
-  <div id="suggested-friends">
-    <ul>
-    {{#each AllUsers}}
-      {{#unless isMeOrFriend this }}
-      <li>
-      <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow {{ userName this }}</a></li>
-      <span>{{ compatibility this }}% compatible</span>
-      {{/unless}}
-    {{/each}}
+<template name="friendRequests">
+  <h3>Friend requests</h3>
+  <ul id="requests-received-list">
+    {{#if hasRequests}}
+      <p>
+        You have {{currentUser.numRequests}} pending requests
+      </p>
+      {{#each currentUser.requests}}
+      <li class="request">
+        <p>{{userName this.requester}} would like to be friends</p>
+          <a href="#" data-action="accept" class='accept-friend-request'>Accept</a>
+          <a href="#" data-action="cancel" class='cancel-friend-request'>No thanks</a>
+      </li>
+      {{/each}}
+      {{else}}
+        <p>You have responded to all your friends' requests.</p>
+      {{/if}}
     </ul>
-  </div>
-</template> -->
+</template>

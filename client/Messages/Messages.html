@@ -1,3 +1,49 @@
 <template name='Messages'>
-  <h1>Messages</h1>
+  <h1 class='page_titles'>Messages</h1>
+
+  <div id="messages-and-friends">
+    {{> displayMessagesFriends}}
+    {{> currentConversations currentUser }}
+  </div>
+
+</template>
+
+<template name= "displayMessagesFriends">
+  <div id="friends-messages-container">
+    <h2 id='message_friends_title'>Your Friends</h2>
+    <ul id="messages-friends-list">
+      {{#if hasFriends}}
+        {{#each currentUser.friends}}
+          <li>
+            <a href="#" class="start-chat-link">{{userName this.user}}</a>
+          </li>
+        {{/each}}
+      {{else}}
+        <p>You don't have any friends yet.</p>
+      {{/if}}
+    </ul>
+  </div>
+</template>
+
+<template name="currentConversations">
+
+  <div id="chat-container">
+    <div id="chat">
+      {{#each displayMessages conversationId }}
+        <p class="message">
+          <strong id='user_name_message'>{{user.username}}: </strong>{{body}}
+        </p>
+      {{/each}}
+      {{scrollToTop}}
+    </div>
+
+    {{#if chatActive }}
+      <form id='chat-form' action="#">
+        <input id="message-input" width="300" type="text">
+        <button value="{{conversationId}}" id="submit-message">Send</button>
+      </form>
+    {{/if}}
+  </div>
+
+
 </template>

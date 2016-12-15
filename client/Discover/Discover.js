@@ -1,5 +1,13 @@
 import { Template } from 'meteor/templating';
 
+Template.Discover.onRendered(function(){
+  Meteor.subscribe('users');
+  Meteor.subscribe('requests');
+  Meteor.subscribe('outgoingRequests');
+  Meteor.subscribe('tracks');
+  Meteor.subscribe('friends');
+});
+
 function currentUser(){
   return Meteor.user();
 }
@@ -33,7 +41,7 @@ function commonTracks(user) {
 Template.suggestedFriends.helpers({
   compatibleUsers: function(){
     var allExceptMe = Meteor.users.find( { _id: {$ne: Meteor.userId()} } ).fetch();
-    if (!Meteor.user().services.spotify) {
+    if (!Meteor.user().tracks) {
       return allExceptMe;
     } else {
       var compatibleMates = _.sortBy(allExceptMe, function(user) { return getCompatibility(user) * -1 });
@@ -55,7 +63,9 @@ Template.suggestedFriends.helpers({
   },
 
   userHasTracks: function(){
-    return Meteor.user().tracks.length > 0
+    if (Meteor.user().tracks) {
+      return Meteor.user().tracks.length > 0
+    }
   }
 });
 

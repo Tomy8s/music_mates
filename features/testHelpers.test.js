@@ -35,3 +35,19 @@ export function createAccount(username, email, password) {
     Accounts.createUser({username: username, email: email, password: password});
   }, username, email, password);
 }
+
+export function makeAndAcceptFriendRequest(){
+    server.call('logout')
+    cleanDatabase();
+    createAccount('user', 'email@email.com', 'password');
+    createAccount('user2', 'email2@email.com', 'password');
+    signIn('user2', 'password');
+    browser.waitForExist('#friend-request-btn', 5000);
+    browser.click('#friend-request-btn');
+    signOut();
+    signIn('user', 'password');
+    browser.pause(500);
+    browser.url('http://localhost:3100/friends');
+    browser.waitForExist('#requests-received-list', 5000);
+    browser.click('#requests-received-list .accept-friend-request');
+}
