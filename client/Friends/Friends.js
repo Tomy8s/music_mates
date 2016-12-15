@@ -1,8 +1,9 @@
 import { Template } from 'meteor/templating';
 
-Template.Messages.onRendered(function(){
+Template.Friends.onRendered(function(){
   Meteor.subscribe('requests');
   Meteor.subscribe('outgoingRequests');
+  Meteor.subscribe('users');
   Meteor.subscribe('friends');
 })
 

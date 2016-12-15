@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
 
 Template.Messages.onRendered(function(){
+  Meteor.subscribe('users');
+  Meteor.subscribe('friends');
   Meteor.subscribe('messages');
   Meteor.subscribe('conversations');
 });
@@ -49,8 +51,8 @@ Template.currentConversations.helpers({
   }
 });
 
- Template.currentConversations.events({
-   'submit #chat-form': function(event) {
+Template.currentConversations.events({
+  'submit #chat-form': function(event) {
     event.preventDefault();
     var conversationId = $('#submit-message').val();
     var input = $("#message-input");
@@ -59,5 +61,9 @@ Template.currentConversations.helpers({
 		conversation.sendMessage(body);
     $("#chat").scrollTop(400);
     input.val('');
-	}
+	},
+
+  'change #chat': function(event){
+    console.log('changed');
+  }
 });

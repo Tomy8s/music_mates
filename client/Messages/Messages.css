@@ -48,8 +48,8 @@
 }
 
 .start-chat-link {
- padding-top: 15px;
- padding-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .start-chat-link:hover{

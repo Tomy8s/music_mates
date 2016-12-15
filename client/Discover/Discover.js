@@ -3,7 +3,9 @@ import { Template } from 'meteor/templating';
 Template.Discover.onRendered(function(){
   Meteor.subscribe('users');
   Meteor.subscribe('requests');
+  Meteor.subscribe('outgoingRequests');
   Meteor.subscribe('tracks');
+  Meteor.subscribe('friends');
 });
 
 function currentUser(){
