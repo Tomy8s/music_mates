@@ -33,6 +33,12 @@
 }
 
 /*#chat-form {
+.active-conversationalist {
+  color: #e53509;
+  background-color: beige;
+}
+
+#chat-form {
   margin-top: 7px;
 }*/
 
@@ -71,6 +77,7 @@
 .start-chat-link {
   padding-left: 10px;
   padding-right: 10px;
+  cursor: pointer;
 }
 
 .start-chat-link:hover{

@@ -1,10 +1,12 @@
 <template name='Messages'>
   <h1 class='page_titles'>Messages</h1>
 
-  <div id="messages-and-friends">
-    {{> displayMessagesFriends}}
-    {{> currentConversations currentUser }}
-  </div>
+  {{#if currentUser}}
+    <div id="messages-and-friends">
+      {{> displayMessagesFriends}}
+      {{> currentConversations currentUser }}
+    </div>
+  {{/if}}
 
 </template>
 
@@ -14,8 +16,8 @@
     <ul id="messages-friends-list">
       {{#if hasFriends}}
         {{#each currentUser.friends}}
-          <li>
-            <a href="#" class="start-chat-link">{{userName this.user}}</a>
+          <li class="start-chat-link {{isActive}}">
+            <a class="{{isActive}}">{{userName this.user}}</a>
           </li>
         {{/each}}
       {{else}}
@@ -28,13 +30,13 @@
 <template name="currentConversations">
 
   <div id="chat-container">
-    <div id="chat">
+    <div id="chat" data-num="{{messageCount conversationId}}">
       {{#each displayMessages conversationId }}
         <p class="message">
           <strong id='user_name_message'>{{user.username}}: </strong>{{body}}
         </p>
+        {{scrollTop @index}}
       {{/each}}
-      {{scrollToTop}}
     </div>
 
     {{#if chatActive }}
