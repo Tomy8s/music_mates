@@ -29,6 +29,7 @@ We created this as a form of social media for music lovers looking to find new f
 
 ##Using the app
 After visiting localhost:3000/ sign up using either your email or hit the Spotify button to sign up with Spotify (The recommended option to get full functionality from the start).
+
 ![alt tag](http://i63.tinypic.com/15d5n9j.png)
 
 ##Stack used
