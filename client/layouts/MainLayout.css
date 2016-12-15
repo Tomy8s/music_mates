@@ -123,7 +123,6 @@ header{
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  font-family: 'Maven Pro', sans-serif;
   font-weight: 900;
   color: #e53509;
 }
@@ -134,20 +133,23 @@ header{
 
 main{
   display: block;
-  margin: 75px auto 56px;
+  margin: auto;
+  border-bottom: 40px white;
   height: 100%;
   background-color: white;
-  padding: 30px;
+  padding: 10px 30px;
   overflow-y: auto;
 }
 
 #__blaze-root{
+  position: static;
+  padding-top: 75px;
   width:80%;
-  margin: 75px auto 56px;
+  margin: auto;
   height: 100%;
-  background-color: white;
 }
 
-/*#container{
-  height: 100%;
-}*/
+#container{
+  height: 86%;
+  overflow-y: auto;
+}
