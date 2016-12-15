@@ -32,6 +32,14 @@ After visiting localhost:3000/ sign up using either your email or hit the Spotif
 
 ![alt tag](http://i68.tinypic.com/15qoif5.png)
 
+From there (If you signed in with Spotify, otherwise this page will show just potential friends) you can view the most popular playlists on Spotify today, listen to them by clicking on the image. To make a new friend click the `follow` link and a friend request will be sent.
+
+![alt tag](http://i63.tinypic.com/jsdhsi.png)
+
+If you have your Spotify account linked (either on sign-up or post sign-up via the profile page) you can upload your playlists to the site on the Playlists page. Just hit the link and they will be pulled in and visible to you and your friends. If you click on the playlist name you can listen to the playlist on the site, as well as having a track list displayed to you.
+
+![alt tag](http://i65.tinypic.com/158822c.png)
+
 ##Stack used
 Meteor/Javascript, tested using Mocha and Chimp
 
