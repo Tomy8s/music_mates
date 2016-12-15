@@ -91,7 +91,4 @@ Template.currentConversations.events({
     Meteor.call('pushMessageNotifications', Meteor.user()._id, otherParticipant)
 	},
 
-  'change #chat': function(event){
-    console.log('changed');
-  }
 });
