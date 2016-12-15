@@ -1,3 +1,11 @@
+Template.Profile.onRendered(function(){
+  Meteor.subscribe('users');
+  Meteor.subscribe('requests');
+  Meteor.subscribe('outgoingRequests');
+  Meteor.subscribe('tracks');
+  Meteor.subscribe('friends');
+});
+
 Template.profileDetails.helpers({
   usersName: function(){
     var userId = getUserId();

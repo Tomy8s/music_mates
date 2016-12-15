@@ -22,7 +22,7 @@
       {{#each currentUser.friends}}
         <li class="friends_list_elements"><a href="/profile/{{friendId}}" name="{{friendId}}" id="profile-link">{{ userName this.user }} </a>
         {{#if userHasTracks}}
-          {{> showCompatibility}}
+          {{> showFriendCompatibility}}
         {{/if}}
           <a href="#" data-action="unfriend" class="unfriend_btn">Unfriend {{ userName this.user }}</a>
         </li>
@@ -61,4 +61,9 @@
         <p>You have responded to all your friends' requests.</p>
       {{/if}}
     </ul>
+</template>
+
+<template name='showFriendCompatibility'>
+  <span>{{ compatibility friendId }}% compatible</span>
+  <span>(<a class="common_tracks_link" href="/commonTracks/{{friendId}}">common tracks</a>: {{commonTracksCount friendId}})</span>
 </template>

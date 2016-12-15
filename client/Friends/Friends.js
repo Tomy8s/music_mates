@@ -5,6 +5,7 @@ Template.Friends.onRendered(function(){
   Meteor.subscribe('outgoingRequests');
   Meteor.subscribe('users');
   Meteor.subscribe('friends');
+  Meteor.subscribe('tracks');
 })
 
 Template.friendRequests.helpers({
@@ -21,7 +22,7 @@ Template.displayFriends.helpers({
     return Meteor.user().friends().count() === 0 ? false : true;
   },
   userHasTracks: function(){
-    console.log(this);
+    console.log('hi');
     if (Meteor.user().tracks) {
       return Meteor.user().tracks.length > 0
     }
@@ -46,13 +47,15 @@ Template.Friends.events({
   },
 });
 
-Template.showCompatibility.helpers({
+Template.showFriendCompatibility.helpers({
   compatibility: function(user){
     var percentage = getCompatibility(user)
     return percentage
   },
-  commonTracksCount: function(user){
-    return commonTracks(user).length
+  commonTracksCount: function(userId){
+    // var user = Meteor.users.findOne(userId);
+    // console.log(user)
+    return commonTracks(userId).length
  },
 });
 
@@ -64,7 +67,10 @@ function getCompatibility(user){
   return result;
 }
 
-function commonTracks(user) {
+function commonTracks(userId) {
+  var user = Meteor.users.findOne(userId);
+  console.log(user)
   var commonTrax = _.intersection(user.tracks, Meteor.user().tracks);
+  console.log(commonTrax.length)
   return commonTrax
 }
