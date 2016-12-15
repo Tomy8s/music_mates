@@ -1,16 +1,18 @@
 <template name='Discover'>
   <h1 class='page_titles'>Discover</h1>
+  {{> discoverPlaylists }}
+
   {{#if currentUser}}
     {{> suggestedFriends }}
   {{/if}}
 
-  {{> discoverPlaylists }}
 </template>
 
 
 
 <template name= "suggestedFriends">
   <div id="suggested-friends">
+    <h2>Other Music Mates with similar tastes</h2>
     <ul>
     {{#each compatibleUsers}}
       {{#unless isFriend this }}
