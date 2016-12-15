@@ -152,7 +152,7 @@ main{
   height: 100%;
   background-color: white;
   padding: 10px 30px;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 #__blaze-root{
@@ -165,5 +165,5 @@ main{
 
 #container{
   height: 86%;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
