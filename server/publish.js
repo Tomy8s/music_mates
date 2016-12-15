@@ -22,6 +22,10 @@ Meteor.publish('participants', function(){
   return Meteor.participants.find({});
 });
 
+Meteor.publish('notifications', function(){
+  return Notifications.find({});
+});
+
 // PUBLISH FRIENDS STUFF
 //Setup a schema so we can check the arguments to ensure application security
 var publicationOptionsSchema = new SimpleSchema({

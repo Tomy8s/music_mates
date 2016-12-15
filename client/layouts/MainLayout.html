@@ -1,6 +1,6 @@
 <template name="MainLayout">
 
-  <div class="container">
+  <div id="container">
 
     <header id='container_header'>
       <div id="logo_div">
@@ -15,13 +15,18 @@
           {{> LoginButtons }}
         </div>
 
+        <div id="notificationsCounter">
+          {{messageCounter}}
+        </div>
+
     </header>
 
-    <main>
-      <div class="main-layout">
+    <main id="main-layout">
         {{> Template.dynamic template=main}}
-      </div>
     </main>
+
   </div>
+  
   {{> page_footer }}
+
 </template>

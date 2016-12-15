@@ -150,6 +150,19 @@ Meteor.methods({
 
   cancelRequest: function(id) {
     Meteor.requests.remove(id);
+  },
+  // messages notifications
+  pushMessageNotifications: function(sender, receiver){
+    console.log(sender);
+    console.log(receiver);
+    var newMessage = Notifications.insert({
+      from: sender,
+      to: receiver,
+    });
+  },
+
+  removeNotifications: function(friendId){
+    Notifications.remove({from:friendId});
   }
 });
 
