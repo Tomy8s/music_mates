@@ -1,8 +1,8 @@
 Template.profileDetails.helpers({
-  userInfo: function(){
+  usersName: function(){
     var userId = getUserId();
     var user = Meteor.users.findOne({_id: userId})
-    return user
+    return user.username
   },
 
   userPlaylists: function(){
