@@ -20,4 +20,27 @@ Before you are able to fully utilise the app you'll need to set up some [Spotify
 Then you are able to get started.
 ```
 $ npm run meteor
+
+Visit localhost:3000/ in any browser
 ```
+##Concept
+
+We created this as a form of social media for music lovers looking to find new friends based on similar music tastes by looking through their playlists. We decided to start with Spotify since it's one of the most used cloud based music platforms as well as having a helpful API we could harness.
+
+##Using the app
+
+
+##Stack used
+Meteor/Javascript, tested using Mocha and Chimp
+
+##Built by
+[Irene Oppo](https://github.com/souljuse)
+[James Steel](https://github.com/James-SteelX)
+[Tadas Majeris](https://github.com/tadasmajeris)
+[Tom Yates](https://github.com/Tomy8s/)
+
+##Future Additions
++ Add in the Apple Music API
++ Show what I'm listening to right now
++ Suggest playlists to friends
++ Ability to follow/remove/add tracks to playlists on the site
