@@ -53,8 +53,6 @@ Template.showFriendCompatibility.helpers({
     return percentage
   },
   commonTracksCount: function(userId){
-    // var user = Meteor.users.findOne(userId);
-    // console.log(user)
     return commonTracks(userId).length
  },
 });
@@ -69,8 +67,6 @@ function getCompatibility(user){
 
 function commonTracks(userId) {
   var user = Meteor.users.findOne(userId);
-  console.log(user)
   var commonTrax = _.intersection(user.tracks, Meteor.user().tracks);
-  console.log(commonTrax.length)
   return commonTrax
 }
