@@ -1,22 +1,25 @@
 <template name="Tracks">
   <div id="container">
 
-    <div id='playlist_title'>
+    
       {{> playlistTitle }}
-    </div>
 
+    <a href="#" class="backLink" id='#go_back_button'>Go Back</a>
 
     {{#if tracks}}
       {{> player}}
-      <br>
-      <a href="#" class="backLink" id='#go_back_button'>Go Back</a>
 
+
+
+     <div id='track_div'>
       <ul id='track_list'>
         {{#each tracks}}
           <li><strong class="track">{{artists}}</strong> - {{name}} </li>
         {{/each}}
       </ul>
+    </div>
     {{/if}}
+
   </div>
 </template>
 
@@ -25,5 +28,5 @@
 </template>
 
 <template name='playlistTitle'>
-  <h2 id='playlist_title_text'>{{ playlistName }}</h2>
+  <h1>{{ playlistName }}</h1>
 </template>

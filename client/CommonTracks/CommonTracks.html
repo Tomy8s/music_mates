@@ -5,11 +5,13 @@
     <a href="#" class="backLink" id='#go_back_button'>Go Back</a>
 
     {{#if tracks}}
+     <div id='common_track_list'>
       <ul>
         {{#each tracks}}
           <li><strong class="track">{{artists}}</strong> - {{name}} </li>
         {{/each}}
       </ul>
+    </div>
     {{/if}}
   </div>
 </template>
