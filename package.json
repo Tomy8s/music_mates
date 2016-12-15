@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "meteor run",
+    "start": "meteor run --settings settings.json",
     "meteor": "meteor --settings settings.json",
     "meteor2": "MONGO_URL=mongodb://localhost:3001/chimp_db meteor --port 3100 --settings settings.json $@",
     "test": "chimp --ddp=http://localhost:3000 --mocha || exit 0",
