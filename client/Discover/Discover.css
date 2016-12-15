@@ -19,13 +19,6 @@
   height: 100%;
 }
 
-#playlist_trending_text{
-  padding-left: 230px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  color: #666666;
-}
-
 .common_tracks_link{
    color: #e53509;
 }
@@ -39,17 +32,15 @@
 }
 
 ul.images {
-   margin: 0;
+   margin: auto;
    padding: 0;
    white-space: nowrap;
-   width: 812px;
+   width: 100%;
+   max-width: 1242px;
    overflow-x: auto;
-   background-color: #ddd;
  }
  ul.images li {
    display: inline;
-   width: 50px;
-   height: 50px;
  }
 
  .playlist_artwork{

@@ -132,20 +132,22 @@ header{
   color: #e53509;
 }
 
-.main-layout {
-  margin: auto;
+main{
+  display: block;
+  margin: 75px auto 56px;
   height: 100%;
   background-color: white;
-  padding : 30px;
+  padding: 30px;
+  overflow-y: auto;
 }
 
 #__blaze-root{
   width:80%;
-  margin: auto;
-  height: 86%;
-  background-color: white;
-  /*margin-bottom: */
-}
-.container{
+  margin: 75px auto 56px;
   height: 100%;
+  background-color: white;
 }
+
+/*#container{
+  height: 100%;
+}*/

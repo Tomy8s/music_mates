@@ -3,7 +3,8 @@ footer{
     height: 32px;
     padding: 7px;
     background-color: #ddd;
-    /*opacity: 0.75;*/
+    position: none;
+    visibility: hidden;
 }
 
 footer, footer a{

@@ -17,14 +17,13 @@ body {
   font-family: 'Maven Pro', sans-serif;
   background-color: beige;
 }
-
+/*
 .page_titles{
   text-align: center;
   font-size: 60px;
-  margin-top: 70px;
   color: #666666;
   font-family: 'Maven Pro', sans-serif;
-}
+}*/
 
 
 nav{
@@ -39,8 +38,12 @@ nav{
   padding: 10px;
 }
 
-h1,h2,h3 {
-  margin : 0;
+h1{
+  margin-top: 0;
+  text-align: center;
+  font-size: 60px;
+  border-bottom: solid #484848 2px;
+  margin-bottom: 10px;
 }
 
 ul {
@@ -61,8 +64,7 @@ a{
 }
 
 h2{
-  padding-left: 230px;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  text-align: center;
+  margin: 20px auto;
   color: #666666;
 }
