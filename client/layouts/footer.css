@@ -1,9 +1,11 @@
 footer{
-    margin: 5px 0;
     height: 32px;
-    padding: 7px;
+    padding: 7px 0;
+    width: 80%;
     background-color: #ddd;
-    /*opacity: 0.75;*/
+    display: block;
+    position: fixed;
+    bottom:0;
 }
 
 footer, footer a{

@@ -19,7 +19,7 @@ describe('Messages', function(){
       makeAndAcceptFriendRequest();
       browser.url('http://localhost:3100/messages');
       browser.pause(200);
-      expect(browser.getText('#messages-friends-list')).to.equal('user2: Send message');
+      expect(browser.getText('#messages-friends-list')).to.equal('user2');
     });
   });
 
