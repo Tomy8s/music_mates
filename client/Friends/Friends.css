@@ -1,3 +1,74 @@
 #friends_not_confirmed {
   margin-top: 20px;
 }
+
+
+#friends_div{
+  width:100%;
+  height:100%;
+  /*background: url("/headphones.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;*/
+}
+
+.list-div{
+  margin: 10px;
+  display:inline-block;
+  background-color: white;
+  height:80%;
+  padding: 10px 20px;
+  border: 5px solid beige;
+  border-radius: 2px;
+}
+
+.left{
+  float:left;
+  text-align: left;
+  width: 54%;
+}
+.left h2{
+  text-align: left;
+
+}
+.right{
+  float: right;
+  text-align: right;
+  width: 30%
+}
+
+#profile-link{
+  font-size: 16px;
+  color: black;
+}
+
+#profile-link:hover {
+  color: #4FA4C9;
+}
+
+#friend-request-btn{
+  color: #666666;
+}
+
+#friend-request-btn:hover {
+   color: #e53509;
+}
+
+.friends_list_elements{
+  padding-top: 10px;
+}
+
+.unfriend_btn{
+  float:right;
+  color: #666666;
+  padding: 3px 8px;
+  background-color: beige;
+}
+
+.unfriend_btn:hover{
+  color: #e53509;
+  padding: 3px 8px;
+  background-color: beige;
+ }

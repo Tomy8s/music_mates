@@ -1,17 +1,14 @@
 <template name='Friends'>
   <h1 class='page_titles'>Friends</h1>
   {{#if currentUser}}
-  <div class="friends">
 
-    <div id="friends">
+  <div id="friends_div">
+    <div class="list-div left">
+      {{> displayFriends }}
+    </div>
 
-      <div class="list-div">
-        {{> displayFriends }}
-      </div>
-
-      <div class="list-div">
-        {{> friendRequests }}
-      </div>
+    <div class="list-div right">
+      {{> friendRequests }}
     </div>
   </div>
   {{/if}}
@@ -19,18 +16,24 @@
 </template>
 
 <template name= "displayFriends">
-  <h2>All your Friends</h2>
+  <h3>All your Friends</h3>
   <ul id="friends-list">
     {{#if hasFriends}}
       {{#each currentUser.friends}}
-        <li><span class="user-name">{{userName this.user}}</span>
-        <a href="#" data-action="unfriend" id="unfriend-btn">Unfriend {{ userName this.user }}</a></li>
+        <li class="friends_list_elements"><a href="/profile/{{friendId}}" name="{{friendId}}" id="profile-link">{{ userName this.user }} </a>
+        {{#if userHasTracks}}
+          {{> showCompatibility}}
+        {{/if}}
+          <a href="#" data-action="unfriend" class="unfriend_btn">Unfriend {{ userName this.user }}</a>
+        </li>
       {{/each}}
     {{else}}
       <p>You don't have any friends yet.</p>
     {{/if}}
   </ul>
+</template>
 
+<template name="friendRequests">
   <h3 id="friends_not_confirmed">Friends who haven't confirmed</h3>
   <ul id="requests-made-list">
     {{#if hasPendingRequests}}
@@ -41,9 +44,6 @@
       <p>Your friends have already responded to all your requests.</p>
     {{/if}}
   </ul>
-</template>
-
-<template name="friendRequests">
   <h3>Friend requests</h3>
   <ul id="requests-received-list">
     {{#if hasRequests}}

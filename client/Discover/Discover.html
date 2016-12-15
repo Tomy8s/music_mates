@@ -1,6 +1,6 @@
 <template name='Discover'>
   <h1 class='page_titles'>Discover</h1>
-  
+
   {{# if currentUser.services.spotify.id}}
    {{> discoverPlaylists }}
   {{/if}}
@@ -10,8 +10,6 @@
   {{/if}}
 
 </template>
-
-
 
 <template name= "suggestedFriends">
   <div id="suggested-friends">
@@ -24,8 +22,7 @@
           <a href="#" type="button" name="{{this._id}}" id="friend-request-btn">Follow</a>
         </li>
         {{#if userHasTracks}}
-          <span>{{ compatibility this }}% compatible</span>
-          <span>(<a class="common_tracks_link" href="/commonTracks/{{_id}}">common tracks</a>: {{commonTracksCount this}})</span>
+          {{> showCompatibility}}
         {{/if}}
       {{/unless}}
     {{/each}}
@@ -40,5 +37,9 @@
      <li><a href="/playlist/{{ id }}/{{ownerId}}" class="playlist_link"><img class='playlist_artwork' src='{{ url }}'></a></li>
     {{/each}}
   </ul>
-
 </template>
+
+<template name="showCompatibility">
+  <span>{{ compatibility this }}% compatible</span>
+  <span>(<a class="common_tracks_link" href="/commonTracks/{{_id}}">common tracks</a>: {{commonTracksCount this}})</span>
+</Template>

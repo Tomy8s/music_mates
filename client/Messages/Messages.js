@@ -26,10 +26,8 @@ Template.displayMessagesFriends.helpers({
     },
 
     hasNotifications: function(friendId){
-      console.log(friendId);
       var current = Meteor.user()._id
       var friendsMessages = Notifications.find({to:current, from:friendId}).fetch();
-      console.log(friendsMessages);
       return friendsMessages.length > 0 ? true : false;
     }
 });
