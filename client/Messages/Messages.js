@@ -5,6 +5,10 @@ Template.Messages.onRendered(function(){
   Meteor.subscribe('conversations');
 });
 
+Template.currentConversations.rendered = function(){
+  $("#chat").scrollTop(400);
+};
+
 Template.displayMessagesFriends.helpers({
     hasFriends: function() {
       if (Meteor.user()) {
@@ -23,7 +27,6 @@ Template.displayMessagesFriends.events({
       conversation.addParticipant(conversationFriend);
     }
     Meteor.call('setActiveConversation', conversation._id);
-    // Session.set('conversationId', conversation._id);
     $("#chat").scrollTop(400);
   }
 });

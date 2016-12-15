@@ -27,3 +27,11 @@ Template.player.helpers({
     return spotifyPlayer;
   }
 });
+
+Template.playlistTitle.helpers({
+  playlistName: function(){
+   var playlist = FlowRouter._current.params.id
+   var spotifyPlayer = Playlists.findOne({ _id: playlist});
+   return spotifyPlayer.name
+  }
+});

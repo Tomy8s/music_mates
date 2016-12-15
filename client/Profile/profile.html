@@ -1,26 +1,40 @@
 <template name='Profile'>
- <h1 class='page_titles'>{{ usersName }} Profile</h1>
-{{> addSpotifyId }}
-{{#if currentUser}}
- {{> profileDetails}}
-{{/if}}
+  <h1 class='page_titles'>Profile</h1>
+
+  {{#if currentUser}}
+    {{> addSpotifyId }}
+    {{> profileDetails}}
+  {{/if}}
+</template>
+
+<template name='OtherProfile'>
+  <h1 class='page_titles'>Profile</h1>
+
+  <a href="#" class="backLink" id='#go_back_button'>Go Back</a>
+
+  {{#if currentUser}}
+    {{> profileDetails}}
+  {{/if}}
 </template>
 
 
 <template name='profileDetails'>
-  <h3>{{ usersName }} Profile</h3>
+  <h3 id="profile_name">{{ usersName }} Profile</h3>
 
   {{#if userImage}}
     <img src="{{userImage}}">
   {{/if}}
-
-  {{#each userPlaylists}}
-    {{> userPlaylist}}
-  {{/each}}
+  <div id='playlist_list_div'>
+   {{#each userPlaylists}}
+     <ul id="playlists_list">
+      {{> userPlaylist}}
+     </ul>
+   {{/each}}
+  </div>
 </template>
 
 <template name="userPlaylist">
-    <li><a href="/playlist/{{_id}}" class="playlist"><strong >{{name}}</strong></a> - {{trackCount}} tracks</li>
+    <li><a href="/playlist/{{_id}}" class="playlist_link"><strong >{{name}}</strong></a> - {{trackCount}} tracks</li>
 </template>
 
 <template name='addSpotifyId'>

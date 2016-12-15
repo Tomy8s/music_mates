@@ -1,12 +1,17 @@
 <template name="Tracks">
   <div id="container">
 
+    <div id='playlist_title'>
+      {{> playlistTitle }}
+    </div>
+
 
     {{#if tracks}}
-    {{> player}}
-    <br>
-      <a href='#' class="backLink">Go Back</a>
-      <ul>
+      {{> player}}
+      <br>
+      <a href="#" class="backLink" id='#go_back_button'>Go Back</a>
+
+      <ul id='track_list'>
         {{#each tracks}}
           <li><strong class="track">{{artists}}</strong> - {{name}} </li>
         {{/each}}
@@ -16,5 +21,9 @@
 </template>
 
 <template name='player'>
-  <iframe src="https://embed.spotify.com/?uri=spotify:user:{{playerId.ownerId}}:playlist:{{playerId.spotifyId}}" width="600" height="397" frameborder="0" allowtransparency="true"></iframe>
+  <iframe id='spotify_player' src="https://embed.spotify.com/?uri=spotify:user:{{playerId.ownerId}}:playlist:{{playerId.spotifyId}}&theme=white" width="600" height="397" frameborder="0" allowtransparency="true"></iframe>
+</template>
+
+<template name='playlistTitle'>
+  <h2 id='playlist_title_text'>{{ playlistName }}</h2>
 </template>
