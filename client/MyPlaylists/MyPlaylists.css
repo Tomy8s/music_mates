@@ -1,14 +1,7 @@
-#playlists_list {
-  margin-top: 30px;
-}
 
-/*#import_button_div{
-  text-align: center;
-  padding: 10px;
-  width: 300px;
-  background-color: #4FA4C9;
-  color"
-}*/
+#import_button_div{
+  margin-bottom: 20px;
+}
 
 .playlist_link{
   font-size: 16px;

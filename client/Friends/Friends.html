@@ -1,4 +1,3 @@
-
 <template name='Friends'>
   <h1 class='page_titles'>Friends</h1>
   {{#if currentUser}}
@@ -32,7 +31,7 @@
     {{/if}}
   </ul>
 
-  <h3>Friends who haven't confirmed</h3>
+  <h3 id="friends_not_confirmed">Friends who haven't confirmed</h3>
   <ul id="requests-made-list">
     {{#if hasPendingRequests}}
       {{#each currentUser.pendingRequests}}
@@ -63,17 +62,3 @@
       {{/if}}
     </ul>
 </template>
-
-<!-- <template name= "suggestedFriends">
-  <div id="suggested-friends">
-    <ul>
-    {{#each AllUsers}}
-      {{#unless isMeOrFriend this }}
-      <li>
-      <a href="#" type="button" name="{{this._id}}" class="friend-request-btn">Follow {{ userName this }}</a></li>
-      <span>{{ compatibility this }}% compatible</span>
-      {{/unless}}
-    {{/each}}
-    </ul>
-  </div>
-</template> -->

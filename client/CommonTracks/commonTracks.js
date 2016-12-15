@@ -1,3 +1,7 @@
+Template.CommonTracks.onRendered(function(){
+  Meteor.subscribe('tracks');
+})
+
 Template.CommonTracks.helpers({
 
   tracks: function(){

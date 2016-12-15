@@ -146,6 +146,10 @@ Meteor.methods({
       var response = spotifyApi.getFeaturedPlaylists({country: 'GB', limit: 10});
     }
     return response.data.body.playlists.items
+  },
+
+  cancelRequest: function(id) {
+    Meteor.requests.remove(id);
   }
 });
 

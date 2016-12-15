@@ -1,5 +1,16 @@
 import { Template } from 'meteor/templating';
 
+Template.Messages.onRendered(function(){
+  Meteor.subscribe('users');
+  Meteor.subscribe('friends');
+  Meteor.subscribe('messages');
+  Meteor.subscribe('conversations');
+});
+
+Template.currentConversations.rendered = function(){
+  $("#chat").scrollTop(400);
+};
+
 Template.displayMessagesFriends.helpers({
     hasFriends: function() {
       if (Meteor.user()) {
@@ -18,7 +29,6 @@ Template.displayMessagesFriends.events({
       conversation.addParticipant(conversationFriend);
     }
     Meteor.call('setActiveConversation', conversation._id);
-    // Session.set('conversationId', conversation._id);
     $("#chat").scrollTop(400);
   }
 });
@@ -41,8 +51,8 @@ Template.currentConversations.helpers({
   }
 });
 
- Template.currentConversations.events({
-   'submit #chat-form': function(event) {
+Template.currentConversations.events({
+  'submit #chat-form': function(event) {
     event.preventDefault();
     var conversationId = $('#submit-message').val();
     var input = $("#message-input");
@@ -51,5 +61,9 @@ Template.currentConversations.helpers({
 		conversation.sendMessage(body);
     $("#chat").scrollTop(400);
     input.val('');
-	}
+	},
+
+  'change #chat': function(event){
+    console.log('changed');
+  }
 });

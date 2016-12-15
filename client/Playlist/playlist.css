@@ -17,10 +17,13 @@
 #go_back_button:hover{
   color: #e53509;
 }
+.backLink:hover {
+  color: #e53509;
+}
 
 #track_list{
   padding-top: 10px;
-  padding-left: 60px;
+  padding-left: 10px;
 }
 
 #playlist_title{

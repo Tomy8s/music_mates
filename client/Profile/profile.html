@@ -1,14 +1,25 @@
 <template name='Profile'>
- <h1 class='page_titles'>{{ userName userInfo }} Profile</h1>
-{{> addSpotifyId }}
-{{#if currentUser}}
- {{> profileDetails}}
-{{/if}}
+  <h1 class='page_titles'>Profile</h1>
+
+  {{#if currentUser}}
+    {{> addSpotifyId }}
+    {{> profileDetails}}
+  {{/if}}
+</template>
+
+<template name='OtherProfile'>
+  <h1 class='page_titles'>Profile</h1>
+
+  <a href="#" class="backLink" id='#go_back_button'>Go Back</a>
+
+  {{#if currentUser}}
+    {{> profileDetails}}
+  {{/if}}
 </template>
 
 
 <template name='profileDetails'>
-  <h3>{{ userName userInfo }} Profile</h3>
+  <h3 id="profile_name">{{ usersName }} Profile</h3>
 
   {{#if userImage}}
     <img src="{{userImage}}">

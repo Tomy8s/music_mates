@@ -1,9 +1,10 @@
 <template name='Messages'>
   <h1 class='page_titles'>Messages</h1>
 
-  {{> displayMessagesFriends}}
-
-  {{> currentConversations currentUser }}
+  <div id="messages-and-friends">
+    {{> displayMessagesFriends}}
+    {{> currentConversations currentUser }}
+  </div>
 
 </template>
 
