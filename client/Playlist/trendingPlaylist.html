@@ -1,0 +1,9 @@
+<template name='trendingPlaylist'>
+  <div id='container'>
+
+    <a href="javascript:history.back()" id='trending_back_button'>Go Back</a>
+
+   <iframe id='trendy_spotify_player' src="https://embed.spotify.com/?uri=spotify:user:{{playlistFinder.owner}}:playlist:{{playlistFinder.id}}&theme=white" width="600" height="700" frameborder="0" allowtransparency="true"></iframe>
+
+ </div>
+</template>
