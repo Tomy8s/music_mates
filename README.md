@@ -44,3 +44,4 @@ Meteor/Javascript, tested using Mocha and Chimp
 + Show what I'm listening to right now
 + Suggest playlists to friends
 + Ability to follow/remove/add tracks to playlists on the site
++ Ability to add more information/photos to the profile page
