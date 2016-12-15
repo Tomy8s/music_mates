@@ -59,3 +59,10 @@ a{
   padding: 3px 5px;
   background-color: #ffcc00;
 }
+
+h2{
+  padding-left: 230px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  color: #666666;
+}

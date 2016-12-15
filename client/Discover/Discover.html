@@ -1,14 +1,18 @@
 <template name='Discover'>
   <h1 class='page_titles'>Discover</h1>
+  {{> discoverPlaylists }}
+
   {{#if currentUser}}
     {{> suggestedFriends }}
   {{/if}}
+
 </template>
 
 
 
 <template name= "suggestedFriends">
   <div id="suggested-friends">
+    <h2>Other Music Mates with similar tastes</h2>
     <ul>
     {{#each compatibleUsers}}
       {{#unless isFriend this }}
@@ -24,4 +28,14 @@
     {{/each}}
     </ul>
   </div>
+</template>
+
+<template name='discoverPlaylists'>
+  <h2 id='playlist_trending_text'>Playlists trending in the UK right now</h2>
+  <ul class="images">
+    {{#each getTrendingPlaylists }}
+     <li><a href="/playlist/{{ id }}/{{ownerId}}" class="playlist_link"><img class='playlist_artwork' src='{{ url }}'></a></li>
+    {{/each}}
+  </ul>
+
 </template>

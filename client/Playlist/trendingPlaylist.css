@@ -1,0 +1,11 @@
+#trendy_spotify_player{
+  padding-top: 70px;
+  padding-left: 50px
+}
+
+#trending_back_button{
+  padding-top: 70px;
+  padding-right: 10px;
+  float: left;
+  color: #666666
+}
