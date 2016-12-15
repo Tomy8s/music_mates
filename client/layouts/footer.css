@@ -1,0 +1,42 @@
+footer{
+    margin: 5px 0;
+    height: 32px;
+    padding: 7px;
+    background-color: #ddd;
+    /*opacity: 0.75;*/
+}
+
+footer, footer a{
+    color: #484848;
+}
+
+footer a:hover{
+    color: #777777;
+    text-decoration: underline;
+}
+
+footer #designer-names{
+    float: left;
+    vertical-align: middle;
+    line-height: 32px;
+    height: 32px;
+}
+
+footer #repo-link-para img{
+    vertical-align: middle;
+}
+
+footer #repo-link-para{
+    float: right;
+    vertical-align: middle;
+    line-height: 32px;
+    height: 32px;
+}
+
+footer #repo-link-para span{
+    margin: 5px;
+}
+
+footer span{
+    margin: 0 20px;
+}

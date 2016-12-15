@@ -2,10 +2,15 @@
 
   <h1 class='page_titles'>My Playlists</h1>
 
+{{# if currentUser.services.spotify.id}}
   <div id='import_button_div'>
    <a href="" id="import_playlists">Import/Update Your Spotify Playlists</a>
    <img src='/ajax-loader.gif' id='playlist_loading_gif' style='display: none'>
   </div>
+{{ else }}
+ <p>Please go to your <a href='/myProfile'>profile page</a> to add your spotify account</p>
+ {{/if}}
+
 
   <div id='playlist_list_div'>
   {{#if playlists}}

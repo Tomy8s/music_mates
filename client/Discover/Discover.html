@@ -1,6 +1,9 @@
 <template name='Discover'>
   <h1 class='page_titles'>Discover</h1>
-  {{> discoverPlaylists }}
+  
+  {{# if currentUser.services.spotify.id}}
+   {{> discoverPlaylists }}
+  {{/if}}
 
   {{#if currentUser}}
     {{> suggestedFriends }}
