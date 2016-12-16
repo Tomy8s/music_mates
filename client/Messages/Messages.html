@@ -38,6 +38,10 @@
           <strong id='user_name_message'>{{user.username}}: </strong>{{body}}
         </p>
         {{scrollTop @index}}
+      {{else}}
+        <div id="messages-list">
+          You currently have no conversations.
+        </div>
       {{/each}}
     </div>
 

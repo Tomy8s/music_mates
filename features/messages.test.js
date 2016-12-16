@@ -6,13 +6,13 @@ describe('Messages', function(){
 
     beforeEach(function() {
       cleanDatabase();
-      signUp('user', 'email@email.com', 'password');
     });
 
     it('displays a message if you have no converstations', function(){
+      signUp('user', 'email@email.com', 'password');
       browser.url('http://localhost:3100/messages');
       browser.pause(200);
-      expect(browser.getText('#messages-list')).to.equal('You currently have no   conversations.');
+      expect(browser.getText('#messages-list')).to.equal('You currently have no conversations.');
     });
 
     it('displays a list of your friends on the page', function(){
@@ -34,11 +34,11 @@ describe('Messages', function(){
       browser.click("#submit-message");
     });
 
-    it('shows the message on senders messages page', function(){
+    it('shows the message on senders messages page @watch', function(){
       expect(browser.getText('#chat p:first-child')).to.equal('user: Hello User2');
     });
 
-    it('shows the message a receivers messages page @watch', function(){
+    it('shows the message a receivers messages page', function(){
       signOut();
       signIn('user2', 'password');
       browser.pause(500);
