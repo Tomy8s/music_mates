@@ -33,15 +33,10 @@
   overflow:auto;
 }
 
-/*#chat-form {
 .active-conversationalist {
   color: #e53509;
   background-color: beige;
 }
-
-#chat-form {
-  margin-top: 7px;
-}*/
 
 #input-field{
   padding-right: 50px;
